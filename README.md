@@ -2,12 +2,18 @@
 
 Dana Pek's portfolio, live at https://danapek.com.
 
-A single static page: `index.html` plus photos in `img/`. No build step.
+Static files, no build step.
+
+- `index.html`: the "work in progress" splash shown at danapek.com for now.
+- `preview/index.html`: the full site, at danapek.com/preview/ (hidden from search engines, not secret).
+- `img/`: photos and screenshots.
+
+**To launch:** replace `index.html` with `preview/index.html`, change every `../img/` to `img/` and `../favicon` to `favicon`, remove the `noindex` line, then delete `preview/`.
 
 ## Editing
 
-- **Work, case studies and photos** are lists near the bottom of `index.html` (`WORK`, `FEATURED`, `PHOTOS`).
+- **Work, case studies and photos** are lists near the bottom of `preview/index.html` (`WORK`, `FEATURED`, `PHOTOS`).
 - **Screenshots and photos** go in `img/`. Reference them as `img/your-file.png`.
-- **Unfinished placeholders** are hidden. Set `SHOW_TODOS = true` in `index.html` to see them while editing locally.
+- **Unfinished placeholders** are hidden. Set `SHOW_TODOS = true` in `preview/index.html` to see them while editing locally.
 
 Pushing to `main` publishes the site through GitHub Actions.
