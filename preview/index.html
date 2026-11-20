@@ -173,7 +173,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 
     <!-- WORK -->
     <section class="view" id="v-work" hidden>
-      <p class="lead">Short versions of my recent work. I’m happy to walk through the full process on a call.</p>
+      <p class="lead">A few things I’ve made lately. Happy to walk you through any of them over a call.</p>
       <div class="pills" id="pills" role="group" aria-label="Filter by category"></div>
       <div class="featured" id="featured"></div>
       <ul class="list full" id="work-list"></ul>
@@ -181,33 +181,33 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 
     <!-- ABOUT -->
     <section class="view" id="v-about" hidden>
-      <p class="lead">I didn’t start in tech. I studied literature and history, then joined Singapore’s Ministry of Defence, where I did UX writing and user research for its public content before moving into international policy.</p>
-      <p>Alongside that, I led UX writing as a volunteer at Oppia, an open-source learning app. Then came Klook, Longbridge and now Goodnotes. Along the way the work moved from writing the words to building the systems that hold them.</p>
+      <p class="lead">I design content and build content systems and tools at Goodnotes.</p>
+      <p>Before this, I helped make it easier for travellers to book trips at Klook, simplified investing with Longbridge, and improved access to maths education with Oppia. In a past life, I did UX writing and research, then defence policy, at Singapore’s Ministry of Defence, and studied English literature and history at uni. Both turned out surprisingly useful for negotiating language, systems and ambiguities.</p>
       <h2>What I bring to a team</h2>
       <ul class="offer">
-        <li>Agent behaviour: what an agent says, when it clarifies, how it escalates and what it refuses</li>
-        <li>System prompts and reference files that shape model behaviour, including tone and guardrails</li>
-        <li>Terminology and taxonomies that both people and AI can read</li>
-        <li>Recurring quality checks on AI-generated language, with failures sorted by severity</li>
-        <li>AI workflows that connect Slack, Notion, Claude and n8n</li>
+        <li>Designing how an agent talks: what it says, when it asks, when it hands over, and what it won’t do</li>
+        <li>Writing the system prompts and reference files that shape how a model behaves</li>
+        <li>Terminology and taxonomies that people and AI can both read</li>
+        <li>Regular quality checks on AI-written copy, so we know what’s getting better and what isn’t</li>
+        <li>AI workflows that connect Slack, Notion, Claude and n8n, to take the grunt work off everyone’s plate</li>
       </ul>
       <dl class="know">
         <dt>Languages</dt><dd>English (native), Chinese (bilingual), Japanese (JLPT N2)</dd>
         <dt>Tools</dt><dd>GitHub (string files, Actions, CI checks), Notion, n8n, Claude, Figma, Maze</dd>
         <dt>Research</dt><dd>Content testing, usability testing, interviews; 20+ studies across 10+ markets</dd>
       </dl>
-      <p class="away">Outside work I’m usually training for a marathon, at CrossFit, somewhere on a multi-day hike, teaching Pilates, or out with a camera. Teaching Pilates freelance is also where I learned to find clients and keep them.</p>
+      <p class="away">Outside of work, I spend as much time away from my computer as possible: hiking, running, training, doing and teaching Pilates, travelling, taking pictures, reading, and learning Japanese and French.</p>
       <div class="photos" id="photos" aria-label="Photos"></div>
     </section>
 
     <!-- FREELANCE -->
     <section class="view" id="v-freelance" hidden>
-      <p class="lead">I’m open to working together on projects with product teams whose words need to work in more than one language, or more than one model.</p>
-      <p>It tends to help when:</p>
+      <p class="lead">I love helping product teams whose words need to work in more than one language, or alongside AI.</p>
+      <p>I can probably help if:</p>
       <ul class="fit">
         <li>you don’t have a content designer yet, and your product reads like five people wrote it</li>
-        <li>you’re launching AI features that need to sound right and behave predictably</li>
-        <li>you’re going multilingual and want the source right before you translate it</li>
+        <li>you’re launching AI features and want them to sound right and behave predictably</li>
+        <li>you’re going multilingual and want to get the source right first</li>
       </ul>
 
       <h2>Ways to work together</h2>
@@ -244,8 +244,8 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 
       <h2>How it works</h2>
       <ol class="steps">
-        <li>You email me a few lines about your product and what’s not working.</li>
-        <li>We have a 30-minute call.</li>
+        <li>You send me a quick note about your product and what’s bugging you.</li>
+        <li>We hop on a 30-minute call.</li>
         <li>I send a short proposal with scope, timeline and a fixed price.</li>
         <li>I work in your tools: Figma, GitHub, Notion, Slack.</li>
         <li>I hand over everything with a walkthrough, so your team can run it without me.</li>
@@ -265,13 +265,13 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
       </dl>
 
       <h2>Get in touch</h2>
-      <p>Email <a href="mailto:hello@danapek.com">hello@danapek.com</a> with what your product does, which languages you work in, what’s not working, and when you’d like to start.</p>
+      <p>Say hi at <a href="mailto:hello@danapek.com">hello@danapek.com</a>. Tell me a little about your product, the languages you work in, what’s not working and when you’d like to start.</p>
     </section>
   </main>
 
   <footer>
     <p>Based in Singapore.</p>
-    <p>Find me on <a href="https://www.linkedin.com/in/danapek" target="_blank" rel="noopener">LinkedIn</a> or at <a href="mailto:hello@danapek.com">hello@danapek.com</a></p>
+    <p>Say hi on <a href="https://www.linkedin.com/in/danapek" target="_blank" rel="noopener">LinkedIn</a> or at <a href="mailto:hello@danapek.com">hello@danapek.com</a></p>
     <p>© 2026</p>
   </footer>
 </div>
@@ -280,7 +280,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 /* Full work list. Newest first.
    TODO (Dana): add a brand / marketing / lifecycle writing entry (Goodnotes or Klook). */
 const WORK = [
-  { s:"Goodnotes, 2026 · In progress", t:"An eval loop for AI-written copy", d:"An LLM-as-judge loop that scores the content design skill’s output against our written standard, then checks and rechecks it after every change. Copy quality gets measured, not assumed.", k:"AI" },
+  { s:"Goodnotes, 2026 · In progress", t:"An eval loop for AI-written copy", d:"An LLM-as-judge loop that scores the content design skill’s output against our written standard, then checks and rechecks it after every change. That way we can see whether the copy is actually getting better.", k:"AI" },
   { s:"Goodnotes, 2026", t:"Testing copy with real users before it ships", d:"In 2026 I set up content testing in Maze, so wording decisions rest on what people understand, not what we prefer.", k:"Research" },
   { s:"Goodnotes, 2026", t:"Feature naming, automated", d:"An n8n and Claude workflow that takes new names through Legal and Marketing review, with a skill that runs competitor research and checks for name clashes. Saves about 20 hours.", k:"Content ops" },
   { s:"Goodnotes, 2026", t:"An intake system for content design", d:"The team’s first Kanban workflow, service levels and request criteria.", k:"Content ops" },

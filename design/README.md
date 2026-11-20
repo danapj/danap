@@ -20,9 +20,14 @@ A quiet, text-first system for a portfolio about language systems. Serif for rea
 
 ## Voice and content
 
-- First person, plain and specific. "I built a terminology system" rather than "Spearheaded terminology initiatives".
+Friendly, warm and plain, like talking to a colleague you like. The examples come from the site.
+
+- Say hello. Pages open like a person would: "Hi! I’m Dana." Calls to action are invitations: "Say hi", "Happy to walk you through any of them over a call."
+- First person, everyday verbs. "I design content", "got our localization off the ground", not "spearheaded" or "language infrastructure".
+- Describe work by what it did for people. "Helped make it easier for travellers to book trips", "simplified investing", "improved access to maths education".
+- A little personality is welcome: "In a past life…", "turned out surprisingly useful", "what’s bugging you". One light touch per paragraph, not a joke in every line.
 - Short sentences. Lead with the outcome, then the detail.
-- Sentence case everywhere, including headings and buttons.
+- Sentence case everywhere, including headings and links.
 - No em dashes, no "not X, but Y", no stock phrases. Say the thing once.
 - Numbers as numerals, with the unit: "16+ languages", "20+ studies", "days to minutes".
 - Project titles describe what was made: "A terminology system built for people and AI", not "Project Glossary".
