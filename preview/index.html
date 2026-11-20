@@ -284,6 +284,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 /* Full work list. Newest first.
    TODO (Dana): add a brand / marketing / lifecycle writing entry (Goodnotes or Klook). */
 const WORK = [
+  { s:"Goodnotes, 2026 · In progress", t:"An eval loop for AI-written copy", d:"An LLM-as-judge loop that scores the content design skill’s output against our written standard, then checks and rechecks it after every change. Copy quality gets measured, not assumed.", k:"AI" },
   { s:"Goodnotes, 2026", t:"Testing copy with real users before it ships", d:"In 2026 I set up content testing in Maze, so wording decisions rest on what people understand, not what we prefer.", k:"Research" },
   { s:"Goodnotes, 2026", t:"Feature naming, automated", d:"An n8n and Claude workflow that takes new names through Legal and Marketing review, with a skill that runs competitor research and checks for name clashes. Saves about 20 hours.", k:"Content ops" },
   { s:"Goodnotes, 2026", t:"An intake system for content design", d:"The team’s first Kanban workflow, service levels and request criteria.", k:"Content ops" },
@@ -308,7 +309,8 @@ const FEATURED = [
       { h:"What I built",
         ul:["<b>Evaluation mode</b> scores copy against our content principles and returns flags and suggested rewrites.",
             "<b>Generative mode</b> turns a brief into A/B test variants with a rationale. Brief to testable variants went from days to minutes.",
-            "It reads screens straight from Figma and cites our terminology and tone files."],
+            "It reads screens straight from Figma and cites our terminology and tone files.",
+            "I’m now building an LLM-as-judge eval loop that checks its output against our standard, and rechecks it after every change."],
         shots:[{ img:"", cap:"Evaluation mode: copy scored against each principle, with flags and rewrites." }] },
       { h:"A decision I made", p:["I kept evaluation and generation as separate modes. Combining them in one prompt made the output worse in both directions."] },
     ] },
