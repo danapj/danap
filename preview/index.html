@@ -106,7 +106,8 @@ h2{font:var(--t-heading);color:var(--ink);margin:var(--s-8) 0 var(--s-4)}
 .proj{border-top:1px solid var(--line);scroll-margin-top:24px}
 .proj summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s-4);align-items:start;padding:var(--s-5) 0}
 .proj summary::-webkit-details-marker{display:none}
-.proj summary:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.proj summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.proj summary:focus:not(:focus-visible){outline:none}
 .proj .sum{display:block;min-width:0}
 .proj summary:hover .pt{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 .proj .tog{width:28px;height:28px;border:1px solid var(--line);border-radius:50%;position:relative;margin-top:2px}
@@ -115,7 +116,8 @@ h2{font:var(--t-heading);color:var(--ink);margin:var(--s-8) 0 var(--s-4)}
 .proj[open] .tog::after{opacity:0}
 .proj summary:hover .tog{border-color:var(--muted)}
 .proj .body{padding:0 52px var(--s-6) 0;color:var(--body)}
-.view .proj p.meta{font:var(--t-meta);color:var(--muted);margin:0 0 var(--s-3)}
+.view .proj p.prob{color:var(--ink);margin:0 0 var(--s-3)}
+.view .proj p.meta.tags{font:var(--t-meta);color:var(--body);margin:var(--s-5) 0 0}
 .view .proj p.call{margin:0 0 1em;padding-left:var(--s-4);border-left:2px solid var(--ink)}
 .proj p.call b{font-weight:600;color:var(--ink)}
 @media (max-width:540px){.proj .body{padding-right:0}}
@@ -321,12 +323,14 @@ const FEATURED = [
     tags:["Content Engineering","AI Tooling","Prompt Engineering","Quality Evaluation"],
     img:"", alt:"The skill scoring a screen of UI copy against content principles",
     intro:"A Claude skill that gives any designer or PM a grounded copy review without waiting for me. It’s been live on Goodnotes’ internal skills marketplace since May 2026.",
+    problem:"Copy review was a bottleneck. Every screen, string and experiment waited on me.",
     sections:[
       { h:"What I built",
         ul:["<b>Evaluation mode</b> scores copy against our content principles and returns flags and suggested rewrites.",
             "<b>Generative mode</b> turns a brief into A/B test variants with a rationale. Brief to testable variants went from days to minutes.",
-            "It reads screens straight from Figma and cites our terminology and tone files.",
-            "I’m now building an LLM-as-judge eval loop that checks its output against our standard, and rechecks it after every change."],
+            "It reads screens from Figma and flags terms that break [our glossary](#terminology).",
+            "An LLM-as-judge eval loop re-checks its output against our standard after every change, to catch regressions.",
+            "[[Adoption: how many designers and PMs use it, or how many reviews it has run since May.]]"],
         shots:[{ img:"", cap:"Evaluation mode: copy scored against each principle, with flags and rewrites." }] },
       { h:"A decision I made", p:["I kept evaluation and generation as separate modes. Combining them in one prompt made the output worse in both directions."] },
     ] },
@@ -335,6 +339,7 @@ const FEATURED = [
     tags:["Content Engineering","Terminology Management","Content Governance","Quality Evaluation"],
     img:"", alt:"A glossary entry with internal and external names and a deprecation flag",
     intro:"One glossary that both the people writing copy and the AI skills checking it can read, with an audit that tracks consistency over time.",
+    problem:"A glossary that only people can read, and that someone has to update by hand, doesn’t scale.",
     sections:[
       { h:"What I built",
         ul:["Every entry has an internal and an external name, deprecation flags and usage notes a model can act on.",
@@ -348,6 +353,7 @@ const FEATURED = [
     tags:["Localization","Content Operations","Multilingual Content"],
     img:"", alt:"A string file in GitHub next to a passing CI check",
     intro:"I expanded my scope beyond content design to get Goodnotes’ localization processes off the ground and scaled across 16+ languages, so multilingual content is more consistent and higher quality.",
+    problem:"[[What wasn’t working before you stepped in.]]",
     sections:[
       { h:"What I built",
         ul:["Strings live in GitHub, where I work with our translation vendor directly.",
@@ -361,6 +367,7 @@ const FEATURED = [
     tags:["Content Design","UX Research","Conversational AI"],
     img:"../img/klook-reviews.png", alt:"The Reviews summary module on a Klook hotel page, before and after",
     intro:"I named and framed Klook’s first consumer AI feature around what travellers get, based on research I ran myself.",
+    problem:"In testing, travellers were wary of a module called “AI summary”, and worried it only showed the good reviews.",
     sections:[
       { h:"What I did",
         ul:["Ran interviews and usability tests on a prototype I designed with content.",
@@ -388,7 +395,7 @@ const SHOW_TODOS = false;
 document.documentElement.classList.toggle("drafts", SHOW_TODOS);
 const hasTodo = s => /\[\[/.test(s);
 const txt = s => esc(s).replace(/\[\[(.*?)\]\]/g, '<span class="todo">[$1]</span>');
-const txtb = s => txt(s).replace(/&lt;b&gt;(.*?)&lt;\/b&gt;/g, '<b>$1</b>');
+const txtb = s => txt(s).replace(/&lt;b&gt;(.*?)&lt;\/b&gt;/g, '<b>$1</b>').replace(/\[([^\]]+)\]\((#[a-z-]+)\)/g, '<a href="$2">$1</a>');
 const keep = t => SHOW_TODOS || !hasTodo(t);
 document.getElementById("featured").innerHTML = FEATURED.map(f => {
   const built = f.sections.find(x => x.ul), call = f.sections.find(x => x.p && /decision/i.test(x.h));
@@ -405,10 +412,11 @@ document.getElementById("featured").innerHTML = FEATURED.map(f => {
       <span class="tog" aria-hidden="true"></span>
     </summary>
     <div class="body">
-    <p class="meta">${f.tags.map(esc).join(", ")}${f.where.includes(" · ") ? " · " + esc(f.where.split(" · ").slice(1).join(" · ")) : ""}</p>
+    ${f.problem && keep(f.problem) ? `<p class="prob">${txt(f.problem)}</p>` : ""}
     ${pts.length ? `<ul>${pts.map(t => `<li>${txtb(t)}</li>`).join("")}</ul>` : ""}
     ${callTxt ? `<p class="call"><b>The call I made:</b> ${txt(callTxt)}</p>` : ""}
     ${fig ? `<figure><img src="${esc(fig.img)}" alt="${esc(f.alt)}" loading="lazy"><figcaption>${esc(fig.cap)}</figcaption></figure>` : ""}
+    <p class="meta tags">${f.tags.map(esc).join(", ")}</p>
     </div>
   </details>`;
 }).join("");
