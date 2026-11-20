@@ -59,6 +59,12 @@ nav{margin-top:var(--s-4);font:var(--t-ui);display:flex;flex-wrap:wrap;gap:var(-
 nav a{color:var(--muted);text-decoration:none}
 nav a:hover{color:var(--ink)}
 nav a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+/* Primary link: the one call to action. Separated and in ink, never a filled button. */
+a.cta{color:var(--ink);font:500 15px/1.5 var(--sans);text-decoration:none}
+a.cta::after{content:" →"}
+a.cta:hover{text-decoration:underline;text-underline-offset:4px}
+nav a.cta{margin-left:auto}
+.view .pkg p.go{margin:16px 0 0}
 .page > footer{margin-top:var(--s-8);padding-top:var(--s-5);border-top:1px solid var(--ink);font:var(--t-ui);color:var(--body)}
 .page > footer p{margin:0 0 var(--s-2)}
 
@@ -90,6 +96,8 @@ h2{font:var(--t-heading);color:var(--ink);margin:var(--s-8) 0 var(--s-4)}
 .pill::before{content:"· "}
 .rows .pkg{padding:var(--s-5) 0;border-top:1px solid var(--line)}
 .rows .pkg:last-child{border-bottom:1px solid var(--line)}
+.start .offer{margin:12px 52px 0 0}
+@media (max-width:540px){.start .offer{margin-right:0}}
 .view .pkg p.rel{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 @media (max-width:540px){.list small,.proj .po,.view .pkg p{padding-right:0}}
 
@@ -159,7 +167,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
       <a href="#hi" data-v="hi">👋 Hi</a>
       <a href="#work" data-v="work">Work</a>
       <a href="#about" data-v="about">About</a>
-      <a href="#freelance" data-v="freelance">Work together</a>
+      <a href="#freelance" data-v="freelance" class="cta">Work together</a>
     </nav>
   </header>
 
@@ -168,7 +176,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
     <section class="view" id="v-hi">
       <p class="lead">Hi! I’m Dana. I design content, and build the systems and tools that help whole teams write well, in 16+ languages.</p>
       <p>These days I’m the only content designer at <a href="https://www.goodnotes.com" target="_blank" rel="noopener">Goodnotes</a>, so I’ve built a <a href="#claude-skill">Claude skill that helps review copy</a>, a <a href="#terminology">terminology system that keeps itself in check</a>, and got our <a href="#localization">localization</a> off the ground. <a href="#work">Here’s what I’ve been working on</a>.</p>
-      <p>I’m always happy to chat about content engineering roles, or a project you’re dreaming up. <a href="mailto:hello@danapek.com">Say hi</a>!</p>
+      <p>I help product teams keep their words clear and consistent, across languages and alongside AI. Got a project in mind, or the right full-time role? <a href="mailto:hello@danapek.com">Say hi</a>!</p>
     </section>
 
     <!-- WORK -->
@@ -210,13 +218,25 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
         <li>you’re going multilingual and want to get the source right first</li>
       </ul>
 
-      <h2>Ways to work together</h2>
-      <div class="pkgs rows">
+      <h2>Start here</h2>
+      <div class="pkgs rows start">
         <div class="pkg">
-          <h3>Content system audit</h3>
-          <p class="dur">About 2 weeks · fixed price</p>
-          <p>I review your product copy, terminology, strings and any AI output, then give you a prioritised list of what to fix first and a starter glossary.</p>
+          <h3>Terminology audit and glossary setup</h3>
+          <p class="dur">2 to 3 weeks · fixed price</p>
+          <p>I look at how your product names things across screens, languages and AI output, then set up a glossary that your team and your tools can both use.</p>
+          <ul class="offer">
+            <li>An audit of the terms you use today, with the inconsistencies that matter most</li>
+            <li>A starter glossary of your core terms, with approved and avoided versions, and notes for translators and AI</li>
+            <li>A simple way to keep it up to date, in the tools you already use</li>
+            <li>A walkthrough, so your team can run it without me</li>
+          </ul>
+          <p class="go"><a class="cta" href="mailto:hello@danapek.com?subject=Terminology%20audit">Say hi to get started</a></p>
+          <p class="rel">Related: <a href="#terminology">terminology system</a></p>
         </div>
+      </div>
+
+      <h2>Other ways to work together</h2>
+      <div class="pkgs rows">
         <div class="pkg">
           <h3>Build your language system</h3>
           <p class="dur">4 to 8 weeks · fixed price</p>

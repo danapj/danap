@@ -83,6 +83,7 @@ Bold appears only as a short lead-in inside a sentence ("**The call I made:**"),
 | Steps | A numbered sequence, one step per row. |
 | Filter | Text links that filter a list of rows by category. |
 | Nav | The page links under the name. |
+| Primary link | The one call to action: "Work together →" in the nav and "Say hi to get started →". `ui` size, weight 500, `ink`, with an arrow. Never a filled button. At most one per screen. |
 
 ## Imagery
 
@@ -95,6 +96,7 @@ No logo: the name set in `display` is the mark. No icons apart from the + / − 
 - Put content in cards, tinted boxes or anything with a shadow or radius.
 - Use `muted` for anything longer than a line, or `line` for text.
 - Use `highlight` as a background for blocks, buttons or more than a few words.
+- Make a call to action a filled or outlined button. Use the primary link instead.
 
 ## Using it in code
 
