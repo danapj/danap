@@ -17,4 +17,4 @@ Static files, no build step.
 - **Screenshots and photos** go in `img/`. Reference them as `img/your-file.png`.
 - **Unfinished placeholders** are hidden. Set `SHOW_TODOS = true` in `preview/index.html` to see them while editing locally.
 
-Pushing to `main` publishes the site through GitHub Actions.
+Pushing to `main` publishes the site through GitHub Actions. Only `index.html`, `preview/`, `img/` and the favicons are published; everything else stays in the repo. If you add a new page or folder, add it to the "Collect site files" step in `.github/workflows/deploy.yml`.
