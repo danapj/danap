@@ -7,6 +7,7 @@ Static files, no build step.
 - `index.html`: the "work in progress" splash shown at danapek.com for now.
 - `preview/index.html`: the full site, at danapek.com/preview/ (hidden from search engines, not secret).
 - `img/`: photos and screenshots.
+- `design/`: the design system (type scale, colours, spacing, components, voice). Read `design/README.md` before changing the look.
 
 **To launch:** replace `index.html` with `preview/index.html`, change every `../img/` to `img/` and `../favicon` to `favicon`, remove the `noindex` line, then delete `preview/`.
 
