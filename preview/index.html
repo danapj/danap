@@ -274,8 +274,8 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 
     <!-- ABOUT -->
     <section class="view" id="v-about" hidden>
-      <p class="lead">I design content and build content systems and tools at Goodnotes.</p>
-      <p>Before this, I helped make it easier for travellers to book trips at Klook, simplified investing with Longbridge, and improved access to maths education with Oppia. In a past life, I did UX writing and research, then defence policy, at Singapore’s Ministry of Defence, and studied English literature and history at uni. Both turned out surprisingly useful for negotiating language, systems and ambiguities.</p>
+      <p class="lead">I design content and build content systems and tools at Goodnotes, used by 25M+ people a month.</p>
+      <p>Before this, I helped make it easier for 20M monthly travellers to book trips at Klook, simplified investing with Longbridge, and improved access to maths education with Oppia. In a past life, I did UX writing and research, then defence policy, at Singapore’s Ministry of Defence, and studied English literature and history at uni. Both turned out surprisingly useful for negotiating language, systems and ambiguities.</p>
       <p>Research has always been part of how I work. At Klook it took up about a third of my time. I’d rather test a word with real people than argue about it in a meeting.</p>
       <h2>What I go deep on</h2>
       <p>Content design and content engineering:</p>
@@ -291,13 +291,15 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
         <li>User research: interviews, usability tests, card sorts and content testing. I started Klook’s research practice from scratch.</li>
         <li>Localization: working with translators and vendors, and getting source copy ready for 16+ languages</li>
         <li>Information architecture: page structures and templates that hold up as products grow</li>
-        <li>Getting product, design, marketing, legal and localization on the same page, early</li>
+        <li>Copy experiments and A/B tests, using behavioural principles like loss aversion and reward framing</li>
+        <li>Accessible copy, written to WCAG 2.1</li>
+        <li>Getting product, design, marketing, legal, compliance and localization on the same page, early</li>
         <li>Leading writers: hiring, onboarding and coaching, with a competency framework to grow against</li>
       </ul>
       <dl class="know">
         <dt>Languages</dt><dd>English (native), Chinese (bilingual), Japanese (JLPT N2)</dd>
         <dt>Tools</dt><dd>GitHub (string files, Actions, CI checks), Notion, n8n, Claude, Figma, Maze</dd>
-        <dt>Research</dt><dd>Content testing, usability testing, interviews; 20+ studies across 10+ markets</dd>
+        <dt>Research</dt><dd>Content testing, usability testing, interviews, card sorts, cloze and highlighter tests; 20+ studies across 10+ markets</dd>
       </dl>
       <p class="away">Outside of work, I spend as much time away from my computer as possible: hiking, running, training, doing and teaching Pilates, travelling, taking pictures, reading, and learning Japanese and French.</p>
       <div class="photos" id="photos" aria-label="Photos"></div>
@@ -446,6 +448,36 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
       <p class="sr" aria-live="polite" id="mo-skill-live"></p>
     </figure>
 </template>
+<template id="tpl-motion-term">
+<figure class="mo" id="mo-term-fig" aria-labelledby="mo-term-cap">
+      <div class="stage">
+        <div>
+          <p class="state" id="mo-term-state" aria-hidden="true">Draft</p>
+          <div class="app skill" id="mo-term-app" role="img" aria-label="Illustrative example of a draft string checked against the glossary, with invented terms. Turn on Cloud Vault becomes Turn on Backup; Your files stay safe in your Locker becomes Your files stay safe in your library; Start free trial becomes Try Plus for 7 days.">
+            <div class="dlg">
+              <div class="title t"><span class="swap"><span class="old"><span class="mark">Turn on Cloud Vault</span></span><span class="new"><span class="mark">Turn on Backup</span></span></span></div>
+              <div class="sub s"><span class="swap"><span class="old"><span class="mark">Your files stay safe in your Locker.</span></span><span class="new"><span class="mark">Your files stay safe in your library.</span></span></span></div>
+              <div class="btns"><span class="btn u"><span class="swap"><span class="old">Start free trial</span><span class="new">Try Plus for 7 days</span></span></span></div>
+            </div>
+          </div>
+        </div>
+        <ol class="notes" id="mo-term-notes">
+          <li data-step="1"><b>Internal name</b> “Cloud Vault” is what the team calls it. People see “Backup”.</li>
+          <li data-step="2"><b>Deprecated</b> “Locker” was retired. Use “library”.</li>
+          <li data-step="3"><b>Usage note</b> Name the plan and the length. Say “free” only when no card is needed.</li>
+        </ol>
+      </div>
+      <figcaption class="mocap">
+        <span id="mo-term-cap">Illustrative example: a draft string checked against glossary entries. Invented terms, not real Goodnotes ones.</span>
+        <span class="ctl">
+          <button type="button" id="mo-term-b-before" aria-pressed="true">Before</button>
+          <button type="button" id="mo-term-b-after" aria-pressed="false">After</button>
+          <button type="button" id="mo-term-b-play" aria-pressed="false">Play</button>
+        </span>
+      </figcaption>
+      <p class="sr" aria-live="polite" id="mo-term-live"></p>
+    </figure>
+</template>
 <template id="tpl-motion-klook">
 <figure class="mo" id="mo-klook-fig" aria-labelledby="mo-klook-cap">
       <div class="stage">
@@ -497,12 +529,11 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 <script>
 /* Full work list. Newest first. */
 const WORK = [
-  { s:"Goodnotes, 2026 · In progress", t:"An eval loop for AI-written copy", d:"An LLM-as-judge loop that re-checks the skill’s output against our standard after every change.", k:"AI" },
-  { s:"Goodnotes, 2026", t:"Scaling localization across 16+ languages", d:"Expanded my scope to get localization off the ground: strings in GitHub, translator context and CI checks.", k:"Localization" },
-  { s:"Goodnotes, 2026", t:"Testing copy with real users before it ships", d:"Content testing in Maze, so wording decisions rest on what people understand.", k:"Research" },
-  { s:"Goodnotes, 2026", t:"Feature naming, automated", d:"An n8n and Claude workflow that runs new names past Legal and Marketing. Saves about 20 hours.", k:"Content ops" },
+  { s:"Goodnotes, 2026", t:"An eval loop for AI-written copy", d:"An LLM-as-judge loop that re-checks the skill’s output against our standard after every change.", k:"AI" },
+  { s:"Goodnotes, 2026", t:"Testing copy with real users before it ships", d:"Label and flow tests in Maze with people in the UK, US and Germany, so wording rests on evidence.", k:"Research" },
+  { s:"Goodnotes, 2026", t:"Feature naming, automated", d:"An n8n and Claude workflow that researches competitors and runs new names past Legal. Saves about 20 hours.", k:"Content ops" },
   { s:"Goodnotes, 2026", t:"An intake system for content design", d:"The team’s first Kanban workflow, service levels and request criteria.", k:"Content ops" },
-  { s:"Longbridge, 2025", t:"Content strategy for AI features in a new brokerage app", d:"Chatbot, AI analysis and multilingual tools for a 0-to-1 product.", k:"AI" },
+  { s:"Longbridge, 2025", t:"Content strategy for AI features in a new brokerage app", d:"Chatbot, AI analysis and multilingual tools for a 0-to-1 product, written with Compliance.", k:"AI" },
   { s:"Klook, 2024–25", t:"Building Klook’s content design practice", d:"As team lead, I hired and coached UX writers, set up our standards, and got content into the UX phase.", k:"Content ops" },
   { s:"Klook, 2024–25", t:"Share previews people actually click", d:"Templates for about 35 share previews, with rules for each app from WeChat to Instagram. Click-throughs went up.", k:"Messaging" },
   { s:"Klook, 2024–25", t:"Partnering with localization across 10 languages", d:"Translator context, quality checks and a new voice and tone guide, plus a way to measure translation quality.", k:"Localization" },
@@ -534,9 +565,9 @@ const FEATURED = [
     problem:"A glossary that only people can read, and that someone has to update by hand, doesn’t scale.",
     pts:["Every entry has an internal and an external name, deprecation flags and usage notes a model can act on.",
          "Product, marketing, agencies, vendors, the content design skill and the feature naming workflow all pull from the same source.",
-         "Every two weeks, an AI-assisted audit checks it against org-wide sources of truth and tracks what’s still unresolved."],
+         "Two skills keep it current: an audit that finds new terms, renames and duplicates for approval, and a weekly sync that publishes confirmed terms to the AI tools."],
     call:"I wrote usage notes precise enough for a model, not just for people. When the AI got something wrong, the fix was usually in the source doc, not the prompt.",
-    fig:{ img:"", cap:"A glossary entry: internal and external names, flags and usage notes." } },
+    motion:"term", fig:{ img:"", cap:"A draft string checked against glossary entries." } },
   { slug:"klook-research", k:"Research", where:"Klook, 2024–25",
     t:"Starting user research at Klook from scratch",
     tags:["UX Research","Content Design","Research Operations"],
@@ -587,17 +618,17 @@ const FEATURED = [
          "Carried lessons from testing in Australia into Travel buddy: clearer entry points and a reassuring, conversational persona."],
     call:"Senior management wanted “AI assistant” or “Travel homie”. With the PM, I laid out why “Travel buddy” worked better across our markets, in tone and at scale, so the name was decided on reasons, not seniority.",
     motion:"klook", fig:{ img:"../img/klook-reviews.png", cap:"Before and after: “AI summary” became “Reviews summary”." } },
-  { slug:"localization", k:"Localization", where:"Goodnotes, 2026", hide:true,
+  { slug:"localization", k:"Localization", where:"Goodnotes, 2026",
     t:"Scaling localization across 16+ languages",
     tags:["Localization","Content Operations","Multilingual Content"],
     alt:"A string file in GitHub next to a passing CI check",
     intro:"I expanded my scope to get Goodnotes’ localization off the ground across 16+ languages, for more consistent copy.",
-    problem:"[[What wasn’t working before you stepped in.]]",
+    problem:"Translation context depended on whoever wrote the pull request, and nobody owned translation quality.",
     pts:["Strings live in GitHub, where I work with our translation vendor directly.",
          "Translators get context with every string.",
          "CI checks in GitHub Actions catch problems before release."],
-    call:"[[One choice you made about the workflow, and why.]]",
-    fig:{ img:"", cap:"A CI check catching a problem before release." } },
+    call:"I asked for an equal seat at the table with Engineering and Product: clear ownership, a shared workflow, and a set point where content quality comes in.",
+    fig:{ img:"", cap:"" } },
 ];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
 const workList = document.getElementById("work-list");
@@ -690,6 +721,8 @@ initMotion("mo-klook", { start:"Before", step:"Change", end:"After",
   liveBefore:"Showing before: AI Summary, Based on real guest reviews.", liveAfter:"Showing after: Reviews summary, From real reviews, powered by AI." });
 initMotion("mo-arex", { start:"Before", step:"Change", end:"After",
   liveBefore:"Showing before: Departure time selection, with one long rule.", liveAfter:"Showing after: Activate your ticket, with three short facts." });
+initMotion("mo-term", { start:"Draft", step:"Flag", end:"Glossary-checked",
+  liveBefore:"Showing the draft: Turn on Cloud Vault. Your files stay safe in your Locker. Start free trial.", liveAfter:"Showing the checked version: Turn on Backup. Your files stay safe in your library. Try Plus for 7 days." });
 initMotion("mo-skill", { start:"Input", step:"Flag", end:"Suggested rewrite",
   liveBefore:"Showing the input: Oops! Something went wrong. Please try again later. OK.", liveAfter:"Showing the rewrite: We couldn’t save your note. Check your connection, then try again. Try again." });
 
