@@ -767,7 +767,10 @@ const PHOTOS = [
   { img:"img/photo-2.jpg", cap:"Another of my photos" },
   // { img:"img/crossfit.jpg", cap:"CrossFit" },
 ];
-document.getElementById("photos").innerHTML = PHOTOS.filter(ph => ph.img || SHOW_TODOS).map(ph => `<figure>${ph.img ? `<img src="${esc(ph.img)}" alt="${esc(ph.cap)}" loading="lazy">` : `<div class="ph">Photo coming soon</div>`}<figcaption>${esc(ph.cap)}</figcaption></figure>`).join("");
+/* Set SHOW_PHOTOS = true to bring the photo grid back on About. */
+const SHOW_PHOTOS = false;
+if (!SHOW_PHOTOS) document.getElementById("photos").remove();
+else document.getElementById("photos").innerHTML = PHOTOS.filter(ph => ph.img || SHOW_TODOS).map(ph => `<figure>${ph.img ? `<img src="${esc(ph.img)}" alt="${esc(ph.cap)}" loading="lazy">` : `<div class="ph">Photo coming soon</div>`}<figcaption>${esc(ph.cap)}</figcaption></figure>`).join("");
 
 const VIEWS = ["hi","work","about","collaborate"];
 function show(){
