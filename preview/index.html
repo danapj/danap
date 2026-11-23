@@ -258,6 +258,12 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
           <p class="rel">Related: <a href="#localization">scaling localization across 16+ languages</a></p>
         </div>
         <div class="pkg">
+          <h3>Notification and email overhaul</h3>
+          <p class="dur">3 to 6 weeks · fixed price</p>
+          <p>I audit your emails, texts and push notifications, map every scenario, and turn them into clear templates your team can reuse. We test them before launch and check the numbers after.</p>
+          <p class="rel">Related: <a href="#pre-trip">pre-trip messaging at Klook</a></p>
+        </div>
+        <div class="pkg">
           <h3>Ongoing support</h3>
           <p class="dur">Monthly</p>
           <p>Copy reviews, content testing and keeping your terminology up to date, for teams that want a content designer part time.</p>
@@ -273,11 +279,9 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
         <li>I hand over everything with a walkthrough, so your team can run it without me.</li>
       </ol>
 
-      <div class="draft">
       <h2>What people say</h2>
-      <blockquote class="quote"><p><span class="todo">[A short quote from a PM, designer or localization partner you’ve worked with.]</span></p><footer><span class="todo">[Name, role, company]</span></footer></blockquote>
-      <blockquote class="quote"><p><span class="todo">[A second quote, ideally about a system or tool you built.]</span></p><footer><span class="todo">[Name, role, company]</span></footer></blockquote>
-      </div>
+      <blockquote class="quote"><p>“Exceeded expectations […] very useful for B2C and B2B platform design.”</p><footer>Kathy C, Product manager, Klook</footer></blockquote>
+      <blockquote class="quote"><p>“Useful insights that helped clarify design direction and provided useful suggestions to improve the user experience. Dana also provided UX writing solutions to improve the B2B experience. This was not an easy thing to achieve.”</p><footer>Kelsey J, Product designer, Klook</footer></blockquote>
 
       <h2>Good to know</h2>
       <dl class="know">
@@ -299,89 +303,99 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 </div>
 
 <script>
-/* Full work list. Newest first.
-   TODO (Dana): add a brand / marketing / lifecycle writing entry (Goodnotes or Klook). */
+/* Full work list. Newest first. */
 const WORK = [
   { s:"Goodnotes, 2026 · In progress", t:"An eval loop for AI-written copy", d:"An LLM-as-judge loop that scores the content design skill’s output against our written standard, then checks and rechecks it after every change. That way we can see whether the copy is actually getting better.", k:"AI" },
+  { s:"Goodnotes, 2026", t:"Scaling localization across 16+ languages", d:"I expanded my scope to get Goodnotes’ localization off the ground: strings in GitHub, context for translators with every string, and CI checks that catch problems before release.", k:"Localization" },
   { s:"Goodnotes, 2026", t:"Testing copy with real users before it ships", d:"In 2026 I set up content testing in Maze, so wording decisions rest on what people understand, not what we prefer.", k:"Research" },
   { s:"Goodnotes, 2026", t:"Feature naming, automated", d:"An n8n and Claude workflow that takes new names through Legal and Marketing review, with a skill that runs competitor research and checks for name clashes. Saves about 20 hours.", k:"Content ops" },
   { s:"Goodnotes, 2026", t:"An intake system for content design", d:"The team’s first Kanban workflow, service levels and request criteria.", k:"Content ops" },
   { s:"Longbridge, 2025", t:"Content strategy for AI features in a new brokerage app", d:"Chatbot, AI analysis and multilingual tools for a 0-to-1 product.", k:"AI" },
-  { s:"Klook, 2024–25", t:"Getting user research off the ground at Klook", d:"Klook had no user research before I joined. In a dual role alongside UX writing, I ran 20+ studies in under a year across all of Klook’s markets, including on-site guerrilla testing at Klook Travel Fests in Sydney and Singapore. I also set up a research panel and an insights database the whole company could use.", k:"Research" },
-  { s:"Klook, 2024–25", t:"Templates and taxonomy for every channel", d:"Email, SMS, push and chatbot templates, and a taxonomy of 35+ Open Graph meta tag categories.", k:"Systems" },
+  { s:"Klook, 2024–25", t:"Getting user research off the ground at Klook", d:"Klook had no user research before I joined. In a dual role alongside UX writing, I ran 20+ studies across Klook’s markets, including guerrilla testing at Klook Travel Fests in Sydney and Singapore. Within 10 months, teams went from outsourcing research to an agency to sending their requests to me. I also trained newer researchers and built a research repository.", k:"Research" },
+  { s:"Klook, 2024–25", t:"Share previews people actually click", d:"Templates for about 35 Open Graph share previews across hotels, transport and tours, with rules for each app, from WeChat to Telegram and Instagram. Click-throughs went up.", k:"Messaging" },
   { s:"Klook, 2024–25", t:"Partnering with localization across 10 languages", d:"Context for translators and quality checks through the CMS, plus a rewritten voice and tone guide.", k:"Localization" },
-  { s:"Klook, 2024–25", t:"Shaping an AI travel assistant’s persona", d:"Two iterations of Klook’s conversational AI. User tests in Australia on a tour comparison tool shaped the entry points and friendly persona of “Travel buddy”, a name I made the case for with the PM.", k:"AI" },
-  { s:"Klook, 2024", t:"One content structure for trains and buses", d:"A shared template for multi-merchant products like Shinkansen, Eurostar and Taiwan High Speed Rail, informed by research in Australia, the UK, EU and US. It has held since launch as products were added, and we reused it for luggage and seat guides.", k:"Systems" },
-  { s:"Oppia, 2022–23", t:"Microcopy for a Brazil launch", d:"Voice, tone and localization-friendly copy for an open-source learning app, 100k+ downloads.", k:"Localization" },
+  { s:"Klook, 2024", t:"Research that reshaped the tours pages", d:"Interviews, usability tests and a card sort together, because what people say isn’t always what they do. The findings shaped the listing page’s structure, what sits at the top, and the itinerary module.", k:"Research" },
+  { s:"Klook, 2024", t:"One content structure for trains and buses", d:"A shared template for multi-merchant products like Shinkansen, Eurostar and Taiwan High Speed Rail, informed by research in Australia, the UK, EU and US. It was the first time product, design and business planning had worked with a content designer on information architecture. The template has held since launch, and we reused it for luggage and seat guides.", k:"Systems" },
+  { s:"Oppia, 2022", t:"Onboarding for people new to apps", d:"Simpler onboarding for learners, parents and teachers who might not be digitally native or English-native, in Brazil, Sub-Saharan Africa and Pakistan. Progressive disclosure, plain copy and low-data choices, refined through usability tests. It launched in English and Brazilian Portuguese with 100k+ downloads.", k:"Localization" },
 ];
-/* Featured projects with case studies.
-   img: path to a screenshot, e.g. "../img/claude-skill-1.png". Leave "" to show a placeholder.
-   Text in [[double brackets]] is a placeholder for Dana to replace. */
+/* Featured projects (expandable rows). hide:true keeps a project out of the featured list.
+   img: path to a screenshot, e.g. "../img/claude-skill-1.png". Leave "" for none.
+   Text in [[double brackets]] is a placeholder, hidden until filled in. */
 const FEATURED = [
-  { slug:"claude-skill", k:"AI", where:"Goodnotes, 2026 · Live since May 2026",
+  { slug:"claude-skill", k:"AI", where:"Goodnotes, 2026",
     t:"A content design skill that reviews copy and writes test variants",
     tags:["Content Engineering","AI Tooling","Prompt Engineering","Quality Evaluation"],
-    img:"", alt:"The skill scoring a screen of UI copy against content principles",
+    alt:"The skill scoring a screen of UI copy against content principles",
     intro:"A Claude skill that gives any designer or PM a grounded copy review without waiting for me. Since it went live in May 2026, it’s run 100+ reviews for 20+ PMs, designers and others.",
     problem:"Copy review was a bottleneck. Every screen, string and experiment waited on me.",
-    sections:[
-      { h:"What I built",
-        ul:["<b>Evaluation mode</b> scores copy against our content principles and returns flags and suggested rewrites.",
-            "<b>Generative mode</b> turns a brief into A/B test variants with a rationale. Brief to testable variants went from days to minutes.",
-            "It reads screens from Figma and flags terms that break [our glossary](#terminology).",
-            "An LLM-as-judge eval loop re-checks its output against our standard after every change, to catch regressions.",
-            "It lives on Goodnotes’ internal skills marketplace, so anyone can run it."],
-        shots:[{ img:"", cap:"Evaluation mode: copy scored against each principle, with flags and rewrites." }] },
-      { h:"A decision I made", p:["I kept evaluation and generation as separate modes. Combining them in one prompt made the output worse in both directions."] },
-    ] },
-  { slug:"terminology", k:"Systems", where:"Goodnotes, 2026 · Live, owned and maintained",
+    pts:["<b>Evaluation mode</b> scores copy against our content principles and returns flags and suggested rewrites.",
+         "<b>Generative mode</b> turns a brief into A/B test variants with a rationale. Brief to testable variants went from days to minutes.",
+         "It reads screens from Figma and flags terms that break [our glossary](#terminology).",
+         "An LLM-as-judge eval loop re-checks its output against our standard after every change, to catch regressions.",
+         "It lives on Goodnotes’ internal skills marketplace, so anyone can run it."],
+    call:"I kept evaluation and generation as separate modes. Combining them in one prompt made the output worse in both directions.",
+    fig:{ img:"", cap:"Evaluation mode: copy scored against each principle, with flags and rewrites." } },
+  { slug:"terminology", k:"Systems", where:"Goodnotes, 2026",
     t:"A terminology system built for people and AI",
     tags:["Content Engineering","Terminology Management","Content Governance","Quality Evaluation"],
-    img:"", alt:"A glossary entry with internal and external names and a deprecation flag",
+    alt:"A glossary entry with internal and external names and a deprecation flag",
     intro:"One glossary for the whole org. It’s used by 200+ people across product and marketing, by our marketing agencies and vendors, and by the AI skills that check copy.",
     problem:"A glossary that only people can read, and that someone has to update by hand, doesn’t scale.",
-    sections:[
-      { h:"What I built",
-        ul:["Every entry has an internal and an external name, deprecation flags and usage notes a model can act on.",
-            "Product, marketing, agencies, vendors, the content design skill and the feature naming workflow all pull from the same source.",
-            "Every two weeks, an AI-assisted audit checks it against org-wide sources of truth and tracks what’s still unresolved."],
-        shots:[{ img:"", cap:"A glossary entry: internal and external names, flags and usage notes." }] },
-      { h:"A decision I made", p:["I wrote usage notes precise enough for a model, not just for people. When the AI got something wrong, the fix was usually in the source doc, not the prompt."] },
-    ] },
-  { slug:"localization", k:"Localization", where:"Goodnotes, 2026",
+    pts:["Every entry has an internal and an external name, deprecation flags and usage notes a model can act on.",
+         "Product, marketing, agencies, vendors, the content design skill and the feature naming workflow all pull from the same source.",
+         "Every two weeks, an AI-assisted audit checks it against org-wide sources of truth and tracks what’s still unresolved."],
+    call:"I wrote usage notes precise enough for a model, not just for people. When the AI got something wrong, the fix was usually in the source doc, not the prompt.",
+    fig:{ img:"", cap:"A glossary entry: internal and external names, flags and usage notes." } },
+  { slug:"gamification", k:"Growth", where:"Klook, 2024",
+    t:"A game that brought lapsed buyers back",
+    tags:["Content Design","Growth","UX Research"],
+    alt:"Screens from Klook’s in-app game",
+    intro:"The content for Klook’s first in-app game, built to win back lapsed buyers. In Singapore, bookings per buyer rose about 15% within a month of launch, and the game later ran in Korea, China, Hong Kong and the Philippines on the content I designed.",
+    problem:"Product wanted to say everything at every touchpoint, and content usually arrived after the design was done.",
+    pts:["Joined before the wireframes were finished, and named the core ideas first: the verbs, the milestones, the rewards and the story from the first tap.",
+         "Mapped every touchpoint with product, design, marketing, legal and localization.",
+         "Tested the live game at Klook Travel Fest Singapore. Naming the prize (“stand a chance to win a 90% coupon”) beat “spin to win”, and the quick fixes went live straight away."],
+    call:"I mocked up every touchpoint side by side, so everyone could see what fit on screen and what each stage needed to say. “Put it all in” turned into clear priorities.",
+    fig:{ img:"", cap:"" } },
+  { slug:"pre-trip", k:"Messaging", where:"Klook, 2024–25",
+    t:"Pre-trip messages travellers understand at a glance",
+    tags:["Content Design","Lifecycle Messaging","Content Systems"],
+    alt:"Before and after of a ticket change notification",
+    intro:"I rewrote the emails, texts and push notifications travellers get before their trip, and turned them into templates any team could reuse. Bad reviews and customer questions about changes and cancellations went down.",
+    problem:"Legacy messages didn’t match in style, tone or terms, so the same change could read three different ways.",
+    pts:["Simplified the content across scenarios with senior management, product and business planning.",
+         "Updated the support chatbot’s replies to match.",
+         "Built a repository of templates that new cases could be added to, with tone and style guidelines."],
+    call:"I replaced “amendment” with “change” or “cancel”, the words travellers actually use, and made every notification clear at first glance.",
+    fig:{ img:"", cap:"" } },
+  { slug:"klook-reviews", k:"AI", where:"Klook, 2024–25",
+    t:"Naming and shaping Klook’s first AI features",
+    tags:["Conversational AI","Content Design","UX Research"],
+    alt:"The Reviews summary module on a Klook hotel page, before and after",
+    intro:"I named and framed Klook’s first consumer AI features, from a hotel reviews summary to “Travel buddy”, an AI travel assistant, based on research I ran myself.",
+    problem:"In testing, travellers were wary of a module called “AI summary”, and worried it only showed the good reviews.",
+    pts:["Renamed “AI summary” to “Reviews summary”, moved AI into the subtitle, and cut numbers users couldn’t place.",
+         "Kept the explainer factual, and saved the friendly voice for the chat interface.",
+         "Carried lessons from testing in Australia into Travel buddy: clearer entry points and a reassuring, conversational persona."],
+    call:"Senior management wanted “AI assistant” or “Travel homie”. With the PM, I laid out why “Travel buddy” worked better across our markets, in tone and at scale, so the name was decided on reasons, not seniority.",
+    fig:{ img:"../img/klook-reviews.png", cap:"Before and after: “AI summary” became “Reviews summary”." } },
+  { slug:"localization", k:"Localization", where:"Goodnotes, 2026", hide:true,
     t:"Scaling localization across 16+ languages",
     tags:["Localization","Content Operations","Multilingual Content"],
-    img:"", alt:"A string file in GitHub next to a passing CI check",
+    alt:"A string file in GitHub next to a passing CI check",
     intro:"I expanded my scope beyond content design to get Goodnotes’ localization processes off the ground and scaled across 16+ languages, so multilingual content is more consistent and higher quality.",
     problem:"[[What wasn’t working before you stepped in.]]",
-    sections:[
-      { h:"What I built",
-        ul:["Strings live in GitHub, where I work with our translation vendor directly.",
-            "Translators get context with every string.",
-            "CI checks in GitHub Actions catch problems before release."],
-        shots:[{ img:"", cap:"A CI check catching a problem before release." }] },
-      { h:"A decision I made", p:["[[One choice you made about the workflow, and why.]]"] },
-    ] },
-  { slug:"klook-reviews", k:"AI", where:"Klook, 2024–25",
-    t:"Naming Klook’s first AI feature",
-    tags:["Content Design","UX Research","Conversational AI"],
-    img:"../img/klook-reviews.png", alt:"The Reviews summary module on a Klook hotel page, before and after",
-    intro:"I named and framed Klook’s first consumer AI feature around what travellers get, based on research I ran myself.",
-    problem:"In testing, travellers were wary of a module called “AI summary”, and worried it only showed the good reviews.",
-    sections:[
-      { h:"What I did",
-        ul:["Ran interviews and usability tests on a prototype I designed with content.",
-            "Found that when travellers read reviews to make a final decision, they distrust AI summaries.",
-            "Renamed “AI summary” to “Reviews summary”, moved AI into the subtitle, and cut numbers users couldn’t place."],
-        shots:[{ img:"../img/klook-reviews.png", cap:"Before and after: “AI summary” became “Reviews summary”." }] },
-      { h:"A decision I made", p:["Product and design wanted to lead with “AI”. I used the research and a review of Trip.com, Expedia and Tripadvisor to make the case for leading with the benefit instead, and they agreed."] },
-    ] },
+    pts:["Strings live in GitHub, where I work with our translation vendor directly.",
+         "Translators get context with every string.",
+         "CI checks in GitHub Actions catch problems before release."],
+    call:"[[One choice you made about the workflow, and why.]]",
+    fig:{ img:"", cap:"A CI check catching a problem before release." } },
 ];
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
 const workList = document.getElementById("work-list");
 workList.innerHTML = WORK.map(w =>
   `<li data-k="${esc(w.k)}"><span class="lt">${esc(w.t)}</span><span class="s">${esc(w.s)} <span class="pill">${esc(w.k)}</span></span><small>${esc(w.d)}</small></li>`).join("");
-const cats = ["All", ...new Set(["AI","Systems","Localization","Research","Content ops"].concat(WORK.map(w => w.k)))];
+const cats = ["All", ...new Set(["AI","Systems","Messaging","Growth","Localization","Research","Content ops"].concat(WORK.map(w => w.k)))];
 const pills = document.getElementById("pills");
 pills.innerHTML = cats.map((c,i) => `<button type="button" id="cat-${i}" data-k="${esc(c)}" aria-pressed="${c === "All"}">${esc(c)}</button>`).join("");
 pills.addEventListener("click", e => {
@@ -397,16 +411,15 @@ const hasTodo = s => /\[\[/.test(s);
 const txt = s => esc(s).replace(/\[\[(.*?)\]\]/g, '<span class="todo">[$1]</span>');
 const txtb = s => txt(s).replace(/&lt;b&gt;(.*?)&lt;\/b&gt;/g, '<b>$1</b>').replace(/\[([^\]]+)\]\((#[a-z-]+)\)/g, '<a href="$2">$1</a>');
 const keep = t => SHOW_TODOS || !hasTodo(t);
-document.getElementById("featured").innerHTML = FEATURED.map(f => {
-  const built = f.sections.find(x => x.ul), call = f.sections.find(x => x.p && /decision/i.test(x.h));
-  const pts = (built ? built.ul : []).filter(keep);
-  const callTxt = call ? call.p.filter(keep)[0] : "";
-  const fig = (built && built.shots || []).find(x => x.img);
+document.getElementById("featured").innerHTML = FEATURED.filter(f => !f.hide).map(f => {
+  const pts = (f.pts || []).filter(keep);
+  const callTxt = f.call && keep(f.call) ? f.call : "";
+  const fig = f.fig && f.fig.img ? f.fig : null;
   return `<details class="proj" id="p-${f.slug}" data-k="${esc(f.k)}">
     <summary>
       <span class="sum">
         <span class="pt">${esc(f.t)}</span>
-        <span class="pm">${esc(f.where.split(" · ")[0])} · ${esc(f.k)}</span>
+        <span class="pm">${esc(f.where)} · ${esc(f.k)}</span>
         <span class="po">${txt(f.intro)}</span>
       </span>
       <span class="tog" aria-hidden="true"></span>
@@ -415,7 +428,7 @@ document.getElementById("featured").innerHTML = FEATURED.map(f => {
     ${f.problem && keep(f.problem) ? `<p class="prob">${txt(f.problem)}</p>` : ""}
     ${pts.length ? `<ul>${pts.map(t => `<li>${txtb(t)}</li>`).join("")}</ul>` : ""}
     ${callTxt ? `<p class="call"><b>The call I made:</b> ${txt(callTxt)}</p>` : ""}
-    ${fig ? `<figure><img src="${esc(fig.img)}" alt="${esc(f.alt)}" loading="lazy"><figcaption>${esc(fig.cap)}</figcaption></figure>` : ""}
+    ${fig ? `<figure><img src="${esc(fig.img)}" alt="${esc(f.alt)}" loading="lazy">${fig.cap ? `<figcaption>${esc(fig.cap)}</figcaption>` : ""}</figure>` : ""}
     <p class="meta tags">${f.tags.map(esc).join(", ")}</p>
     </div>
   </details>`;
@@ -436,13 +449,13 @@ document.getElementById("photos").innerHTML = PHOTOS.filter(ph => ph.img || SHOW
 const VIEWS = ["hi","work","about","freelance"];
 function show(){
   let h = location.hash.slice(1).replace(/^case-/, "");
-  const proj = FEATURED.find(x => x.slug === h);
+  const proj = FEATURED.find(x => x.slug === h && !x.hide) || (FEATURED.some(x => x.slug === h) ? {work:true} : null);
   const v = proj ? "work" : (VIEWS.includes(h) ? h : "hi");
   VIEWS.forEach(n => document.getElementById("v-" + n).hidden = n !== v);
   document.querySelectorAll("nav a").forEach(a => {
     if (a.dataset.v === v) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
   });
-  if (proj) { const d = document.getElementById("p-" + proj.slug); d.open = true; d.scrollIntoView(); }
+  if (proj && !proj.work) { const d = document.getElementById("p-" + proj.slug); d.open = true; d.scrollIntoView(); }
   else if (location.hash) scrollTo(0, 0);
 }
 
