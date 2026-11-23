@@ -146,6 +146,12 @@ h2{font:var(--t-heading);color:var(--ink);margin:var(--s-8) 0 var(--s-4)}
 /* Images */
 figure{margin:var(--s-5) 0 0}
 .proj figure img{display:block;width:100%;height:auto;border:1px solid var(--line);background:#fff}
+.proj .gal{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5);margin-top:var(--s-5)}
+.proj .gal figure{margin:0}
+.proj .gal .wide{grid-column:1/-1}
+.proj .gal img{aspect-ratio:1/1;object-fit:cover}
+.proj .gal .wide img{aspect-ratio:auto}
+@media (max-width:640px){.proj .gal{grid-template-columns:1fr}}
 figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 .photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-3);margin-top:var(--s-2)}
 .photos figure{margin:0;min-width:0}
@@ -589,7 +595,15 @@ const FEATURED = [
          "Piloted an AI survey tool with customers in Singapore, Japan and Indonesia, and shared what it could and couldn’t do.",
          "Trained newer researchers and built a research repository."],
     call:"I brought PMs and designers into every study: planning it together, sitting in on interviews, and a short retro after each session. They owned the findings, so the findings got built.",
-    fig:{ img:"", cap:"" } },
+    fig:{ img:"", cap:"" },
+    gallery:[
+      { img:"../img/research-booth.jpg", alt:"A research booth called Klook Lab at Klook Travel Fest, with a sign offering a voucher for taking part", cap:"Our research booth at Klook Travel Fest. Travellers got a voucher for taking part." },
+      { img:"../img/research-in-person.jpg", alt:"Dana at a table with a participant, testing on a phone. Other faces are hidden.", cap:"Testing with travellers in person." },
+      { img:"../img/research-kansai.jpg", alt:"A remote usability test on Klook’s site, searching for Kansai airport to Osaka. Participants’ faces are hidden.", cap:"A remote usability test: getting from Kansai Airport to Osaka." },
+      { img:"../img/research-workshop.jpg", alt:"Title slide: User interview workshop, Dana Pek, 22 May 2025", cap:"A user interview workshop I ran for colleagues." },
+      { wide:true, img:"../img/research-remote.jpg", alt:"Two tour pages on a phone, shared during remote sessions. Participants are hidden.", cap:"Interviews and usability tests with travellers in Taiwan and Australia, on the live app and a prototype." },
+      { wide:true, img:"../img/research-cardsort.jpg", alt:"A FigJam card sort of transport products, next to remote usability tests on Klook’s site", cap:"A card sort for transport categories, and remote usability tests." }
+    ] },
   { slug:"gamification", k:"Growth", where:"Klook, 2024",
     t:"A game that brought lapsed buyers back",
     tags:["Content Design","Growth","UX Research"],
@@ -676,6 +690,7 @@ document.getElementById("featured").innerHTML = FEATURED.filter(f => !f.hide).ma
     ${pts.length ? `<ul>${pts.map(t => `<li>${txtb(t)}</li>`).join("")}</ul>` : ""}
     ${callTxt ? `<p class="call"><b>The call I made:</b> ${txt(callTxt)}</p>` : ""}
     ${f.motion ? `<div data-motion="${f.motion}"></div>` : fig ? `<figure><img src="${esc(fig.img)}" alt="${esc(f.alt)}" loading="lazy">${fig.cap ? `<figcaption>${esc(fig.cap)}</figcaption>` : ""}</figure>` : ""}
+    ${f.gallery && f.gallery.length ? `<div class="gal">${f.gallery.map(g => `<figure${g.wide ? ' class="wide"' : ""}><img src="${esc(g.img)}" alt="${esc(g.alt || "")}"${g.pos ? ` style="object-position:${esc(g.pos)}"` : ""} loading="lazy">${g.cap ? `<figcaption>${esc(g.cap)}</figcaption>` : ""}</figure>`).join("")}</div>` : ""}
     <p class="meta tags">${f.tags.map(esc).join(", ")}</p>
     </div>
   </details>`;
