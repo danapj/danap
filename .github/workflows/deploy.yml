@@ -35,9 +35,9 @@ jobs:
       # Stamp the footer with the date the site content last changed.
       - name: Add last updated date
         run: |
-          ISO=$(git log -1 --format=%cs -- preview img index.html)
+          ISO=$(git log -1 --format=%cs -- index.html img)
           NICE=$(date -d "$ISO" "+%-d %B %Y")
-          sed -i "s/__UPDATED_ISO__/$ISO/; s/__UPDATED__/$NICE/" _site/preview/index.html
+          sed -i "s/__UPDATED_ISO__/$ISO/; s/__UPDATED__/$NICE/" _site/index.html
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
