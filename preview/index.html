@@ -158,6 +158,70 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 .quote{margin:0 0 var(--s-5);padding-left:var(--s-5);border-left:2px solid var(--line)}
 .view .quote p{font-style:italic;margin:0 0 6px}
 .quote footer{font:var(--t-meta);color:var(--muted)}
+/* Motion figure: Klook reviews summary (scoped to .mo) */
+/* ---------- The motion figure ---------- */
+.mo{margin:var(--s-5) 0 0}
+.mo .stage{border:1px solid var(--line);background:#fff;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:var(--s-6);padding:var(--s-6)}
+@media (max-width:640px){.mo .stage{grid-template-columns:1fr;gap:var(--s-5);padding:var(--s-5)}}
+
+/* Recreated product module: keeps its own look, like a screenshot would */
+.mo .app{font-family:var(--sans);color:#1f1f1f;max-width:380px}
+.mo .app .rt{display:flex;align-items:baseline;gap:6px;margin-bottom:18px}
+.mo .app .rt b{font:600 34px/1 var(--sans);letter-spacing:-.5px}
+.mo .app .rt span{font-size:13px;color:#666}
+.mo .app .rt .stars{color:#f09b1a;font-size:16px;letter-spacing:1px;margin-left:6px}
+.mo .head{display:grid;grid-template-columns:28px 1fr;column-gap:10px;align-items:center;margin-bottom:12px}
+.mo .icon{grid-row:span 2;width:28px;height:28px;position:relative}
+.mo .icon svg{position:absolute;inset:0;transition:opacity .5s ease, transform .5s ease}
+.mo .swap{position:relative;display:inline-grid}
+.mo .swap > span{grid-area:1/1;transition:opacity .45s ease, transform .45s ease, filter .45s ease}
+.mo .swap .new{opacity:0;transform:translateY(6px);filter:blur(2px)}
+.mo .title{font:600 18px/1.3 var(--sans)}
+.mo .sub{font-size:13px;color:#666;margin-top:2px}
+.mo .mark{background-image:linear-gradient(var(--hl),var(--hl));background-repeat:no-repeat;background-size:0% 100%;background-position:left;transition:background-size .5s ease;padding:0 2px;margin:0 -2px}
+.mo .card{border-radius:14px;padding:14px 16px;background:#f1f1f1;transition:background-color .6s ease}
+.mo .card .ct{display:flex;justify-content:space-between;font:600 15px/1.3 var(--sans);margin-bottom:6px}
+.mo .count{font-weight:400;font-size:13px;color:#777;transition:opacity .45s ease}
+.mo .card p{font:400 14px/1.5 var(--sans);margin:0;color:#2a2a2a}
+.mo .fb{display:flex;gap:16px;margin-top:10px;font-size:12px;color:#666;transition:opacity .45s ease}
+.mo .fb > span{display:inline-flex;align-items:center;gap:4px}
+.mo .fb svg{width:14px;height:14px}
+.mo .fb .lbl{display:inline-block;max-width:7em;overflow:hidden;white-space:nowrap;transition:opacity .45s ease, max-width .5s ease}
+
+/* After state */
+.mo .s1 .t .old,.mo .s2 .s .old{opacity:0;transform:translateY(-6px);filter:blur(2px)}
+.mo .s1 .t .new,.mo .s2 .s .new{opacity:1;transform:none;filter:none}
+.mo .s1 .icon .i-old{opacity:0;transform:scale(.8)}
+.mo .s1 .icon .i-new{opacity:1;transform:none}
+.mo .icon .i-new{opacity:0;transform:scale(.8)}
+.mo .s1 .t .new{color:#2b2f9e}
+.mo .s3 .count{opacity:0}
+.mo .done .card{background:#f1f4fb}
+.mo .done .fb .lbl{opacity:0;max-width:0}
+.mo .on1 .t .mark,.mo .on2 .s .mark,.mo .on3 .count-mark{background-size:100% 100%}
+
+/* Notes: numbered, in Dana's voice, taken from the Work page */
+.mo .notes{list-style:none;margin:0;padding:0;font:var(--t-meta);color:var(--muted);counter-reset:n}
+.mo .notes li{counter-increment:n;padding:var(--s-3) 0;border-top:1px solid var(--line);transition:color .4s ease}
+.mo .notes li:last-child{border-bottom:1px solid var(--line)}
+.mo .notes li::before{content:counter(n) "  ";color:var(--muted)}
+.mo .notes li.active{color:var(--ink)}
+.mo .state{font:var(--t-meta);color:var(--muted);margin:0 0 var(--s-3)}
+
+/* Caption + controls under the frame */
+.mo .mocap{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2);display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s-2) var(--s-4)}
+.mo .ctl{display:flex;gap:var(--s-4)}
+.mo .ctl button{font:var(--t-meta);color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.mo .ctl button[aria-pressed="true"]{color:var(--ink)}
+.mo .ctl button:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+.mo .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+
+@media (prefers-reduced-motion: reduce){.mo *,.mo *::before,.mo *::after{transition:none !important}}
+.mo{margin:var(--s-5) 0 0}
+.mo .stage{grid-template-columns:minmax(0,1fr) 180px}
+@media (max-width:640px){.mo .stage{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -304,6 +368,45 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
       <h2>Get in touch</h2>
       <p>Say hi at <a href="mailto:hello@danapek.com">hello@danapek.com</a>. Tell me a little about your product, the languages you work in, what’s not working and when you’d like to start.</p>
     </section>
+  <template id="tpl-motion">
+<figure class="mo" id="mo-fig" aria-labelledby="mo-cap">
+      <div class="stage">
+        <div>
+          <p class="state" id="mo-state" aria-hidden="true">Before</p>
+          <div class="app" id="mo-app" role="img" aria-label="A hotel reviews module. Before: titled AI Summary, subtitle Based on real guest reviews, with a 1/5 counter on the card. After: titled Reviews summary, subtitle From real reviews, powered by AI, and no counter.">
+            <div class="rt"><b>4.5</b><span>/5</span><span class="stars">★★★★☆</span><span>274 reviews</span></div>
+            <div class="head">
+              <div class="icon" aria-hidden="true">
+                <svg class="i-old" viewBox="0 0 28 28"><rect x="5" y="9" width="18" height="13" rx="5" fill="#6b5be0"/><circle cx="11" cy="15.5" r="2" fill="#fff"/><circle cx="17" cy="15.5" r="2" fill="#fff"/><line x1="14" y1="9" x2="14" y2="5" stroke="#6b5be0" stroke-width="2"/><circle cx="14" cy="4.5" r="1.8" fill="#6b5be0"/></svg>
+                <svg class="i-new" viewBox="0 0 28 28"><path d="M6 4l1.2 3L10 8.2 7.2 9.4 6 12.4 4.8 9.4 2 8.2 4.8 7z" fill="#2b2f9e"/><rect x="8" y="9" width="17" height="13" rx="6.5" fill="#2b2f9e"/><rect x="12" y="13.5" width="9" height="1.6" rx=".8" fill="#fff"/><rect x="12" y="16.5" width="6" height="1.6" rx=".8" fill="#fff"/></svg>
+              </div>
+              <div class="title t"><span class="swap"><span class="old"><span class="mark">AI Summary</span></span><span class="new"><span class="mark">Reviews summary</span></span></span></div>
+              <div class="sub s"><span class="swap"><span class="old"><span class="mark">Based on real guest reviews</span> ⓘ</span><span class="new"><span class="mark">From real reviews, powered by AI</span> ⓘ</span></span></div>
+            </div>
+            <div class="card">
+              <div class="ct">Overall impression <span class="count"><span class="mark count-mark">1/5</span></span></div>
+              <p>A great choice for a comfortable stay in Osaka. The modern rooms, friendly staff, and convenient location provide a relaxing and enjoyable experience. (10 reviews)</p>
+              <div class="fb" aria-hidden="true"><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 7v7H2.5V7zM5 7l3-5c1.2 0 1.8.8 1.5 2L9 6.5h4c.8 0 1.3.7 1.1 1.4l-1.3 5c-.2.7-.8 1.1-1.5 1.1H5"/></svg><span class="lbl">Helpful</span></span><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" style="transform:rotate(180deg)"><path d="M5 7v7H2.5V7zM5 7l3-5c1.2 0 1.8.8 1.5 2L9 6.5h4c.8 0 1.3.7 1.1 1.4l-1.3 5c-.2.7-.8 1.1-1.5 1.1H5"/></svg><span class="lbl">Not helpful</span></span></div>
+            </div>
+          </div>
+        </div>
+        <ol class="notes" id="mo-notes">
+          <li data-step="1">Renamed “AI summary” to “Reviews summary”.</li>
+          <li data-step="2">Moved AI into the subtitle.</li>
+          <li data-step="3">Cut numbers users couldn’t place.</li>
+        </ol>
+      </div>
+      <figcaption class="mocap">
+        <span id="mo-cap">Before and after: “AI summary” became “Reviews summary”.</span>
+        <span class="ctl">
+          <button type="button" id="mo-b-before" aria-pressed="true">Before</button>
+          <button type="button" id="mo-b-after" aria-pressed="false">After</button>
+          <button type="button" id="mo-b-play" aria-pressed="false">Play</button>
+        </span>
+      </figcaption>
+      <p class="sr" aria-live="polite" id="mo-live"></p>
+    </figure>
+</template>
   </main>
 
   <footer>
@@ -405,7 +508,7 @@ const FEATURED = [
          "Kept the explainer factual, and saved the friendly voice for the chat interface.",
          "Carried lessons from testing in Australia into Travel buddy: clearer entry points and a reassuring, conversational persona."],
     call:"Senior management wanted “AI assistant” or “Travel homie”. With the PM, I laid out why “Travel buddy” worked better across our markets, in tone and at scale, so the name was decided on reasons, not seniority.",
-    fig:{ img:"../img/klook-reviews.png", cap:"Before and after: “AI summary” became “Reviews summary”." } },
+    motion:true, fig:{ img:"../img/klook-reviews.png", cap:"Before and after: “AI summary” became “Reviews summary”." } },
   { slug:"localization", k:"Localization", where:"Goodnotes, 2026", hide:true,
     t:"Scaling localization across 16+ languages",
     tags:["Localization","Content Operations","Multilingual Content"],
@@ -455,11 +558,86 @@ document.getElementById("featured").innerHTML = FEATURED.filter(f => !f.hide).ma
     ${f.problem && keep(f.problem) ? `<p class="prob">${txt(f.problem)}</p>` : ""}
     ${pts.length ? `<ul>${pts.map(t => `<li>${txtb(t)}</li>`).join("")}</ul>` : ""}
     ${callTxt ? `<p class="call"><b>The call I made:</b> ${txt(callTxt)}</p>` : ""}
-    ${fig ? `<figure><img src="${esc(fig.img)}" alt="${esc(f.alt)}" loading="lazy">${fig.cap ? `<figcaption>${esc(fig.cap)}</figcaption>` : ""}</figure>` : ""}
+    ${f.motion ? `<div data-motion></div>` : fig ? `<figure><img src="${esc(fig.img)}" alt="${esc(f.alt)}" loading="lazy">${fig.cap ? `<figcaption>${esc(fig.cap)}</figcaption>` : ""}</figure>` : ""}
     <p class="meta tags">${f.tags.map(esc).join(", ")}</p>
     </div>
   </details>`;
 }).join("");
+document.querySelectorAll("[data-motion]").forEach(el => el.replaceWith(document.getElementById("tpl-motion").content.cloneNode(true)));
+function initMotion(){
+  if (!document.getElementById("mo-app")) return;
+(() => {
+  const app = document.getElementById("mo-app");
+  const notes = [...document.querySelectorAll("#mo-notes li")];
+  const stateEl = document.getElementById("mo-state");
+  const bB = document.getElementById("mo-b-before"), bA = document.getElementById("mo-b-after"), bP = document.getElementById("mo-b-play");
+  const live = document.getElementById("mo-live");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+
+  // One loop, about 12 seconds: hold, three changes one at a time, hold on the result.
+  // Each frame: [ms from start, classes on .app, active note, label]
+  const TL = [
+    [0,     "",                          0, "Before"],
+    [1600,  "on1",                       1, "Before"],
+    [2400,  "on1 s1",                    1, "Change 1 of 3"],
+    [4200,  "s1 on2",                    2, "Change 2 of 3"],
+    [5000,  "s1 s2 on2",                 2, "Change 2 of 3"],
+    [6800,  "s1 s2 on3",                 3, "Change 3 of 3"],
+    [7600,  "s1 s2 s3",                  3, "Change 3 of 3"],
+    [8600,  "s1 s2 s3 done",             0, "After"],
+  ];
+  const LOOP = 12600;
+  let t0 = 0, raf = 0, playing = false, visible = true, last = -1;
+
+  function apply(i){
+    if (i === last) return; last = i;
+    const [, cls, note, label] = TL[i];
+    app.className = "app " + cls;
+    notes.forEach(n => n.classList.toggle("active", note === 0 ? label === "After" : +n.dataset.step === note));
+    stateEl.textContent = label;
+  }
+  function frame(now){
+    const t = (now - t0) % LOOP;
+    let i = 0; while (i + 1 < TL.length && TL[i + 1][0] <= t) i++;
+    apply(i);
+    raf = requestAnimationFrame(frame);
+  }
+  function play(){
+    if (playing) return; playing = true; last = -1;
+    t0 = performance.now(); raf = requestAnimationFrame(frame);
+    bP.textContent = "Pause"; bP.setAttribute("aria-pressed","true");
+    bB.setAttribute("aria-pressed","false"); bA.setAttribute("aria-pressed","false");
+  }
+  function stop(){ playing = false; cancelAnimationFrame(raf); bP.textContent = "Play"; bP.setAttribute("aria-pressed","false"); }
+  function show(after){
+    stop(); last = -1; apply(after ? TL.length - 1 : 0);
+    bB.setAttribute("aria-pressed", String(!after)); bA.setAttribute("aria-pressed", String(after));
+    live.textContent = after ? "Showing after: Reviews summary, From real reviews, powered by AI." : "Showing before: AI Summary, Based on real guest reviews.";
+  }
+
+  // Once someone uses a control, autoplay never takes over again.
+  let userControl = false, autoPaused = false;
+  bB.onclick = () => { userControl = true; show(false); };
+  bA.onclick = () => { userControl = true; show(true); };
+  bP.onclick = () => { userControl = true; playing ? stop() : play(); };
+
+  // Only run while on screen and the tab is visible.
+  const canAuto = () => !reduce.matches && !userControl;
+  new IntersectionObserver(([e]) => {
+    visible = e.isIntersecting;
+    if (visible && (canAuto() || autoPaused)) { autoPaused = false; play(); }
+    else if (!visible && playing) { stop(); autoPaused = true; }
+  }, { threshold: .4 }).observe(document.getElementById("mo-fig"));
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && playing) { stop(); autoPaused = true; }
+    else if (!document.hidden && autoPaused && visible) { autoPaused = false; play(); }
+  });
+
+  // Reduced motion: no autoplay. Start on the result, with every note visible; the buttons swap states instantly.
+  if (reduce.matches) show(true); else apply(0);
+})();
+}
+initMotion();
 
 /* Photo grid at the bottom of About. img: path like "../img/marathon.jpg" */
 const PHOTOS = [
