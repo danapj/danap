@@ -193,7 +193,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
     <section class="view" id="v-about" hidden>
       <p class="lead">I design content and build content systems and tools at Goodnotes.</p>
       <p>Before this, I helped make it easier for travellers to book trips at Klook, simplified investing with Longbridge, and improved access to maths education with Oppia. In a past life, I did UX writing and research, then defence policy, at Singapore’s Ministry of Defence, and studied English literature and history at uni. Both turned out surprisingly useful for negotiating language, systems and ambiguities.</p>
-      <p>Research has always been part of how I work. I’d rather test a word with real people than argue about it in a meeting.</p>
+      <p>Research has always been part of how I work. At Klook it took up about a third of my time. I’d rather test a word with real people than argue about it in a meeting.</p>
       <h2>What I go deep on</h2>
       <p>Content design and content engineering:</p>
       <ul class="offer">
@@ -209,6 +209,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
         <li>Localization: working with translators and vendors, and getting source copy ready for 16+ languages</li>
         <li>Information architecture: page structures and templates that hold up as products grow</li>
         <li>Getting product, design, marketing, legal and localization on the same page, early</li>
+        <li>Leading writers: hiring, onboarding and coaching, with a competency framework to grow against</li>
       </ul>
       <dl class="know">
         <dt>Languages</dt><dd>English (native), Chinese (bilingual), Japanese (JLPT N2)</dd>
@@ -289,9 +290,9 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
       </ol>
 
       <h2>What people say</h2>
-      <blockquote class="quote"><p>“When Dana first joined Klook, I sent her a UX writing request. It was long and chunky. She simply rewrote it as ‘We’ll keep you updated.’ That moment showed me the power of great UX writing, and Dana’s instinct for clarity and user focus. […] Dana quickly became a user research lead and was later invited to conduct interviews at Klook’s Travel Fest in Sydney!”</p><footer>Penny Tsai, Content designer, UK Government (worked with Dana at Klook)</footer></blockquote>
-      <blockquote class="quote"><p>“Exceeded expectations […] very useful for B2C and B2B platform design.”</p><footer>Kathy C, Product manager, Klook</footer></blockquote>
-      <blockquote class="quote"><p>“Useful insights that helped clarify design direction and provided useful suggestions to improve the user experience. Dana also provided UX writing solutions to improve the B2B experience. This was not an easy thing to achieve.”</p><footer>Kelsey J, Product designer, Klook</footer></blockquote>
+      <blockquote class="quote"><p>“When Dana first joined Klook, I sent her a UX writing request. It was long and chunky. She simply rewrote it as ‘We’ll keep you updated.’ That moment showed me the power of great UX writing, and Dana’s instinct for clarity and user focus. […] Dana quickly became a user research lead and was later invited to conduct interviews at Klook’s Travel Fest in Sydney!”</p><footer>Penny Tsai, Content designer, ex-colleague at Klook</footer></blockquote>
+      <blockquote class="quote"><p>“Exceeded expectations […] very useful for B2C and B2B platform design.”</p><footer>Kathy C, Product manager, ex-colleague at Klook</footer></blockquote>
+      <blockquote class="quote"><p>“Useful insights that helped clarify design direction and provided useful suggestions to improve the user experience. Dana also provided UX writing solutions to improve the B2B experience. This was not an easy thing to achieve.”</p><footer>Kelsey J, Product designer, ex-colleague at Klook</footer></blockquote>
 
       <h2>Good to know</h2>
       <dl class="know">
@@ -321,8 +322,9 @@ const WORK = [
   { s:"Goodnotes, 2026", t:"Feature naming, automated", d:"An n8n and Claude workflow that takes new names through Legal and Marketing review, with a skill that runs competitor research and checks for name clashes. Saves about 20 hours.", k:"Content ops" },
   { s:"Goodnotes, 2026", t:"An intake system for content design", d:"The team’s first Kanban workflow, service levels and request criteria.", k:"Content ops" },
   { s:"Longbridge, 2025", t:"Content strategy for AI features in a new brokerage app", d:"Chatbot, AI analysis and multilingual tools for a 0-to-1 product.", k:"AI" },
+  { s:"Klook, 2024–25", t:"Building Klook’s content design practice", d:"As team lead, I hired, onboarded and coached UX writers, and wrote our competency framework, service levels and a content audit checklist. I also moved content into the UX phase of the product cycle, with Figma components mapped to text IDs, so copy stopped arriving after the design was done.", k:"Content ops" },
   { s:"Klook, 2024–25", t:"Share previews people actually click", d:"Templates for about 35 Open Graph share previews across hotels, transport and tours, with rules for each app, from WeChat to Telegram and Instagram. Click-throughs went up.", k:"Messaging" },
-  { s:"Klook, 2024–25", t:"Partnering with localization across 10 languages", d:"Context for translators and quality checks through the CMS, plus a rewritten voice and tone guide.", k:"Localization" },
+  { s:"Klook, 2024–25", t:"Partnering with localization across 10 languages", d:"Context for translators and quality checks through the CMS, plus a rewritten voice and tone guide. I pushed for a “translation issue” option in the post-booking survey, so translation quality could be measured, and for proofreading AI-translated strings before release.", k:"Localization" },
   { s:"Klook, 2024", t:"One content structure for trains and buses", d:"A shared template for multi-merchant products like Shinkansen, Eurostar and Taiwan High Speed Rail, informed by research in Australia, the UK, EU and US. It was the first time product, design and business planning had worked with a content designer on information architecture. The template has held since launch, and we reused it for luggage and seat guides.", k:"Systems" },
   { s:"Oppia, 2022", t:"Onboarding for people new to apps", d:"Simpler onboarding for learners, parents and teachers who might not be digitally native or English-native, in Brazil, Sub-Saharan Africa and Pakistan. Progressive disclosure, plain copy and low-data choices, refined through usability tests. It launched in English and Brazilian Portuguese with 100k+ downloads.", k:"Localization" },
 ];
@@ -363,6 +365,7 @@ const FEATURED = [
     pts:["<b>Japan transport:</b> interviews and usability tests with first-time travellers from the UK, Europe, Australia, New Zealand and the US. They knew where they were going, not which train to buy, so we made the case for organising transport by route. Nobody knew what “JR” meant, so “JR Pass” became “Japan Rail Pass”.",
          "<b>Klook Travel Fest Sydney:</b> on-site research with three colleagues, covering checkout, transport, tours and car rental. I led the platform topics. On the AI comparison tool, almost no one noticed the “VS” entry point, so we spelled out “Compare”.",
          "<b>Tours:</b> interviews, usability tests and a card sort together, because what people say isn’t always what they do. The findings shaped the listing page’s structure and what sits at the top.",
+         "Piloted an AI survey tool with customers in Singapore, Japan and Indonesia, and shared what it could and couldn’t do.",
          "Trained newer researchers and built a research repository."],
     call:"I brought PMs and designers into every study: planning it together, sitting in on interviews, and a short retro after each session. They owned the findings, so the findings got built.",
     fig:{ img:"", cap:"" } },
@@ -380,14 +383,15 @@ const FEATURED = [
   { slug:"pre-trip", k:"Messaging", where:"Klook, 2024–25",
     t:"Pre-trip messages travellers understand at a glance",
     tags:["Content Design","Lifecycle Messaging","Content Systems"],
-    alt:"Before and after of a ticket change notification",
+    alt:"Ticket activation screens for the AREX airport train, with copy annotated by text ID",
     intro:"I rewrote the emails, texts and push notifications travellers get before their trip, and turned them into templates any team could reuse. Bad reviews and customer questions about changes and cancellations went down.",
     problem:"Legacy messages didn’t match in style, tone or terms, so the same change could read three different ways.",
     pts:["Simplified the content across scenarios with senior management, product and business planning.",
          "Updated the support chatbot’s replies to match.",
-         "Built a repository of templates that new cases could be added to, with tone and style guidelines."],
+         "Built a repository of templates that new cases could be added to, with tone and style guidelines.",
+         "Rewrote ticket activation for Seoul’s airport train string by string, so every text ID in the flow tells the same story."],
     call:"I replaced “amendment” with “change” or “cancel”, the words travellers actually use, and made every notification clear at first glance.",
-    fig:{ img:"", cap:"" } },
+    fig:{ img:"../img/arex-activation.png", cap:"Ticket activation for Seoul’s airport train: each line of copy mapped to its text ID, then the English as it ships." } },
   { slug:"klook-reviews", k:"AI", where:"Klook, 2024–25",
     t:"Naming and shaping Klook’s first AI features",
     tags:["Conversational AI","Content Design","UX Research"],
