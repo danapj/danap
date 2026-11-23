@@ -225,6 +225,11 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 .mo .notes li:last-child{border-bottom:1px solid var(--line)}
 .mo .notes li::before{content:counter(n) "  ";color:var(--muted)}
 .mo .notes li.active{color:var(--ink)}
+.mo .notes .tag{color:var(--muted)}
+.mo .notes .tag::after{content:"\A";white-space:pre}
+.mo .notes .tag.blocker{color:var(--ink);font-weight:500}
+.mo .figlabel{font:var(--t-meta);color:var(--muted);margin:0 0 var(--s-2);opacity:0;transition:opacity .4s ease}
+.mo .stage:has(.app.done) .figlabel{opacity:1}
 .mo .state{font:var(--t-meta);color:var(--muted);margin:0 0 var(--s-3)}
 
 /* Caption + controls under the frame */
@@ -423,7 +428,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
       <div class="stage">
         <div>
           <p class="state" id="mo-skill-state" aria-hidden="true">Input</p>
-          <div class="app skill" id="mo-skill-app" role="img" aria-label="Illustrative example of the content design skill reviewing an error dialog. It flags tone, clarity and consistency, then suggests rewrites: Oops! Something went wrong becomes We couldn’t save your note; Please try again later becomes Check your connection, then try again; OK becomes Try again.">
+          <div class="app skill" id="mo-skill-app" role="img" aria-label="Illustrative example of the content design skill reviewing an error dialog. It flags a tone blocker and two suggestions, for clarity and consistency, suggests rewrites, then posts the review to Figma as annotations: Oops! Something went wrong becomes We couldn’t save your note; Please try again later becomes Check your connection, then try again; OK becomes Try again.">
             <div class="dlg">
               <div class="title t"><span class="swap"><span class="old"><span class="mark">Oops! Something went wrong</span></span><span class="new"><span class="mark">We couldn’t save your note</span></span></span></div>
               <div class="sub s"><span class="swap"><span class="old"><span class="mark">Please try again later.</span></span><span class="new"><span class="mark">Check your connection, then try again.</span></span></span></div>
@@ -431,14 +436,17 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
             </div>
           </div>
         </div>
-        <ol class="notes" id="mo-skill-notes">
-          <li data-step="1"><b>Tone</b> “Oops” makes light of a lost note. Say what happened.</li>
-          <li data-step="2"><b>Clarity</b> “Try again later” leaves people stuck. Tell them what to do.</li>
-          <li data-step="3"><b>Consistency</b> Buttons name the action, not “OK”.</li>
-        </ol>
+        <div class="anno">
+          <p class="figlabel" aria-hidden="true">Figma · Copy review</p>
+          <ol class="notes" id="mo-skill-notes">
+            <li data-step="1"><span class="tag blocker">Blocker</span><b>Tone</b> “Oops” makes light of a lost note. Say what happened.</li>
+            <li data-step="2"><span class="tag">Suggestion</span><b>Clarity</b> “Try again later” leaves people stuck. Tell them what to do.</li>
+            <li data-step="3"><span class="tag">Suggestion</span><b>Consistency</b> Buttons name the action, not “OK”.</li>
+          </ol>
+        </div>
       </div>
       <figcaption class="mocap">
-        <span id="mo-skill-cap">Illustrative example of evaluation mode: flags against content principles, then rewrites. Not real Goodnotes copy.</span>
+        <span id="mo-skill-cap">Illustrative example: the skill flags copy against our principles, suggests rewrites, then posts its review to Figma as annotations. Not real Goodnotes copy.</span>
         <span class="ctl">
           <button type="button" id="mo-skill-b-before" aria-pressed="true">Before</button>
           <button type="button" id="mo-skill-b-after" aria-pressed="false">After</button>
@@ -556,7 +564,7 @@ const FEATURED = [
          "An LLM-as-judge eval loop re-checks its output against our standard after every change, to catch regressions.",
          "It lives on Goodnotes’ internal skills marketplace, so anyone can run it."],
     call:"I kept evaluation and generation as separate modes. Combining them in one prompt made the output worse in both directions.",
-    motion:"skill", fig:{ img:"", cap:"Evaluation mode: copy scored against each principle, with flags and rewrites." } },
+    motion:"skill", fig:{ img:"", cap:"Evaluation mode: copy flagged against each principle, rewritten, then posted to Figma as annotations." } },
   { slug:"terminology", k:"Systems", where:"Goodnotes, 2026",
     t:"A terminology system built for people and AI",
     tags:["Content Engineering","Terminology Management","Content Governance","Quality Evaluation"],
@@ -723,8 +731,8 @@ initMotion("mo-arex", { start:"Before", step:"Change", end:"After",
   liveBefore:"Showing before: Departure time selection, with one long rule.", liveAfter:"Showing after: Activate your ticket, with three short facts." });
 initMotion("mo-term", { start:"Draft", step:"Flag", end:"Glossary-checked",
   liveBefore:"Showing the draft: Turn on Cloud Vault. Your files stay safe in your Locker. Start free trial.", liveAfter:"Showing the checked version: Turn on Backup. Your files stay safe in your library. Try Plus for 7 days." });
-initMotion("mo-skill", { start:"Input", step:"Flag", end:"Suggested rewrite",
-  liveBefore:"Showing the input: Oops! Something went wrong. Please try again later. OK.", liveAfter:"Showing the rewrite: We couldn’t save your note. Check your connection, then try again. Try again." });
+initMotion("mo-skill", { start:"Input", step:"Flag", end:"Posted to Figma as annotations",
+  liveBefore:"Showing the input: Oops! Something went wrong. Please try again later. OK.", liveAfter:"Showing the rewrite, posted to Figma as annotations: We couldn’t save your note. Check your connection, then try again. Try again." });
 
 /* Photo grid at the bottom of About. img: path like "../img/marathon.jpg" */
 const PHOTOS = [
