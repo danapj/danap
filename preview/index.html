@@ -552,7 +552,7 @@ const FEATURED = [
     problem:"Copy review was a bottleneck. Every screen, string and experiment waited on me.",
     pts:["<b>Evaluation mode</b> scores copy against our content principles and returns flags and suggested rewrites.",
          "<b>Generative mode</b> turns a brief into A/B test variants with a rationale. Brief to testable variants went from days to minutes.",
-         "It reads screens from Figma and flags terms that break [our glossary](#terminology).",
+         "It reads screens from Figma, flags terms that break [our glossary](#terminology), and can post its review back to Figma as annotations next to the design.",
          "An LLM-as-judge eval loop re-checks its output against our standard after every change, to catch regressions.",
          "It lives on Goodnotes’ internal skills marketplace, so anyone can run it."],
     call:"I kept evaluation and generation as separate modes. Combining them in one prompt made the output worse in both directions.",
