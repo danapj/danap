@@ -158,7 +158,26 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
 .quote{margin:0 0 var(--s-5);padding-left:var(--s-5);border-left:2px solid var(--line)}
 .view .quote p{font-style:italic;margin:0 0 6px}
 .quote footer{font:var(--t-meta);color:var(--muted)}
-/* Motion figure: Klook reviews summary (scoped to .mo) */
+/* Motion figures (scoped to .mo): shared engine, three demos */
+.mo .s3 .u .old{opacity:0;transform:translateY(-6px);filter:blur(2px)}
+.mo .s3 .u .new{opacity:1;transform:none;filter:none}
+.mo .on3 .u .mark{background-size:100% 100%}
+.mo .arex.s1 .t .new,.mo .skill.s1 .t .new{color:inherit}
+.mo .arex,.mo .skill{font-family:var(--sans);color:#1f1f1f;max-width:380px}
+.mo .arex .sheet-h{display:flex;gap:10px;align-items:flex-start;font:600 16px/1.35 var(--sans);margin-bottom:12px}
+.mo .arex .info{background:#eef3ff;color:#2f55d4;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.5;margin-bottom:12px}
+.mo .arex .slots{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.mo .arex .slots span{border:1px solid #ddd;border-radius:8px;text-align:center;font-size:12px;padding:7px 0;color:#444}
+.mo .arex .acard{border:1px solid #e6e6e6;border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.5}
+.mo .arex .acard b{display:block;font-size:14px;margin-bottom:6px}
+.mo .idtag{display:inline-block;font:500 10px/1 var(--sans);color:#6f6f69;border:1px solid #dcdcd6;border-radius:3px;padding:2px 5px;margin-bottom:4px;letter-spacing:.02em}
+.mo .notes b{font-weight:500;color:inherit}
+.mo .skill .dlg{border:1px solid #e6e6e6;border-radius:14px;padding:20px;background:#fff}
+.mo .skill .title{font:600 17px/1.35 var(--sans);margin-bottom:6px}
+.mo .skill .sub{font-size:14px;color:#555;line-height:1.5;margin:0 0 16px}
+.mo .skill .btn{display:inline-block;background:#1f1f1f;color:#fff;border-radius:8px;padding:8px 14px;font:500 13px/1.3 var(--sans);transition:outline-color .4s ease;outline:3px solid transparent;outline-offset:2px}
+.mo .skill.on3 .btn{outline-color:var(--hl)}
+.mo .mocap a{color:inherit}
 /* ---------- The motion figure ---------- */
 .mo{margin:var(--s-5) 0 0}
 .mo .stage{border:1px solid var(--line);background:#fff;display:grid;grid-template-columns:minmax(0,1fr) 210px;gap:var(--s-6);padding:var(--s-6)}
@@ -368,12 +387,71 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
       <h2>Get in touch</h2>
       <p>Say hi at <a href="mailto:hello@danapek.com">hello@danapek.com</a>. Tell me a little about your product, the languages you work in, what’s not working and when you’d like to start.</p>
     </section>
-  <template id="tpl-motion">
-<figure class="mo" id="mo-fig" aria-labelledby="mo-cap">
+  <template id="tpl-motion-arex">
+<figure class="mo" id="mo-arex-fig" aria-labelledby="mo-arex-cap">
       <div class="stage">
         <div>
-          <p class="state" id="mo-state" aria-hidden="true">Before</p>
-          <div class="app" id="mo-app" role="img" aria-label="A hotel reviews module. Before: titled AI Summary, subtitle Based on real guest reviews, with a 1/5 counter on the card. After: titled Reviews summary, subtitle From real reviews, powered by AI, and no counter.">
+          <p class="state" id="mo-arex-state" aria-hidden="true">Before</p>
+          <div class="app arex" id="mo-arex-app" role="img" aria-label="Ticket activation for Seoul’s AREX airport train. Before: a sheet titled Departure time selection with one long rule. After: titled Activate your ticket, with three short facts, and a clearer status card. Each string is tagged with its text ID.">
+            <div class="sheet-h"><span aria-hidden="true">✕</span><span class="t"><span class="idtag">120022</span><br><span class="swap"><span class="old"><span class="mark">Departure time selection</span></span><span class="new"><span class="mark">Activate your ticket</span></span></span></span></div>
+            <div class="info s"><span class="idtag">120023</span><br><span class="swap"><span class="old"><span class="mark">Tickets should be activated on the day of travel, and cannot be changed after activation. Select your preferred departure period, and seats on the earliest available train will be automatically reserved. If no trains are available, please try another departure period.</span></span><span class="new"><span class="mark">Select a departure time to activate your ticket. You can do this up to 2 months before your departure date. Changes aren’t allowed after. Seats will be automatically reserved.</span></span></span></div>
+            <div class="slots" aria-hidden="true"><span>06:00–06:40</span><span>06:40–07:20</span><span>07:20–08:00</span><span>08:00–08:40</span></div>
+            <div class="acard u"><b>Status: To be activated</b><span class="idtag">120018</span><br><span class="swap"><span class="old"><span class="mark">Activate your ticket: Starting from 2 months before your departure date. As demand for AREX is high, we recommend reserving your train in advance.</span></span><span class="new"><span class="mark">Activate your ticket by reserving your train. You can do this up to 2 months before your departure date. As demand for AREX is high, we recommend reserving your train in advance.</span></span></span></div>
+          </div>
+        </div>
+        <ol class="notes" id="mo-arex-notes">
+          <li data-step="1"><b>120022</b> The title says what you’re doing: “Activate your ticket”.</li>
+          <li data-step="2"><b>120023</b> One long rule became three short facts: when, what can’t change, what happens next.</li>
+          <li data-step="3"><b>120018</b> The status card says how to activate before the reminder about demand.</li>
+        </ol>
+      </div>
+      <figcaption class="mocap">
+        <span id="mo-arex-cap">Ticket activation for Seoul’s airport train, string by string. <a href="../img/arex-activation.png" target="_blank" rel="noopener">See the working board</a></span>
+        <span class="ctl">
+          <button type="button" id="mo-arex-b-before" aria-pressed="true">Before</button>
+          <button type="button" id="mo-arex-b-after" aria-pressed="false">After</button>
+          <button type="button" id="mo-arex-b-play" aria-pressed="false">Play</button>
+        </span>
+      </figcaption>
+      <p class="sr" aria-live="polite" id="mo-arex-live"></p>
+    </figure>
+</template>
+<template id="tpl-motion-skill">
+<figure class="mo" id="mo-skill-fig" aria-labelledby="mo-skill-cap">
+      <div class="stage">
+        <div>
+          <p class="state" id="mo-skill-state" aria-hidden="true">Input</p>
+          <div class="app skill" id="mo-skill-app" role="img" aria-label="Illustrative example of the content design skill reviewing an error dialog. It flags tone, clarity and consistency, then suggests rewrites: Oops! Something went wrong becomes We couldn’t save your note; Please try again later becomes Check your connection, then try again; OK becomes Try again.">
+            <div class="dlg">
+              <div class="title t"><span class="swap"><span class="old"><span class="mark">Oops! Something went wrong</span></span><span class="new"><span class="mark">We couldn’t save your note</span></span></span></div>
+              <div class="sub s"><span class="swap"><span class="old"><span class="mark">Please try again later.</span></span><span class="new"><span class="mark">Check your connection, then try again.</span></span></span></div>
+              <div class="btns"><span class="btn u"><span class="swap"><span class="old">OK</span><span class="new">Try again</span></span></span></div>
+            </div>
+          </div>
+        </div>
+        <ol class="notes" id="mo-skill-notes">
+          <li data-step="1"><b>Tone</b> “Oops” makes light of a lost note. Say what happened.</li>
+          <li data-step="2"><b>Clarity</b> “Try again later” leaves people stuck. Tell them what to do.</li>
+          <li data-step="3"><b>Consistency</b> Buttons name the action, not “OK”.</li>
+        </ol>
+      </div>
+      <figcaption class="mocap">
+        <span id="mo-skill-cap">Illustrative example of evaluation mode: flags against content principles, then rewrites. Not real Goodnotes copy.</span>
+        <span class="ctl">
+          <button type="button" id="mo-skill-b-before" aria-pressed="true">Before</button>
+          <button type="button" id="mo-skill-b-after" aria-pressed="false">After</button>
+          <button type="button" id="mo-skill-b-play" aria-pressed="false">Play</button>
+        </span>
+      </figcaption>
+      <p class="sr" aria-live="polite" id="mo-skill-live"></p>
+    </figure>
+</template>
+<template id="tpl-motion-klook">
+<figure class="mo" id="mo-klook-fig" aria-labelledby="mo-klook-cap">
+      <div class="stage">
+        <div>
+          <p class="state" id="mo-klook-state" aria-hidden="true">Before</p>
+          <div class="app klook" id="mo-klook-app" role="img" aria-label="A hotel reviews module. Before: titled AI Summary, subtitle Based on real guest reviews, with a 1/5 counter on the card. After: titled Reviews summary, subtitle From real reviews, powered by AI, and no counter.">
             <div class="rt"><b>4.5</b><span>/5</span><span class="stars">★★★★☆</span><span>274 reviews</span></div>
             <div class="head">
               <div class="icon" aria-hidden="true">
@@ -390,21 +468,21 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
             </div>
           </div>
         </div>
-        <ol class="notes" id="mo-notes">
+        <ol class="notes" id="mo-klook-notes">
           <li data-step="1">Renamed “AI summary” to “Reviews summary”.</li>
           <li data-step="2">Moved AI into the subtitle.</li>
           <li data-step="3">Cut numbers users couldn’t place.</li>
         </ol>
       </div>
       <figcaption class="mocap">
-        <span id="mo-cap">Before and after: “AI summary” became “Reviews summary”.</span>
+        <span id="mo-klook-cap">Before and after: “AI summary” became “Reviews summary”.</span>
         <span class="ctl">
-          <button type="button" id="mo-b-before" aria-pressed="true">Before</button>
-          <button type="button" id="mo-b-after" aria-pressed="false">After</button>
-          <button type="button" id="mo-b-play" aria-pressed="false">Play</button>
+          <button type="button" id="mo-klook-b-before" aria-pressed="true">Before</button>
+          <button type="button" id="mo-klook-b-after" aria-pressed="false">After</button>
+          <button type="button" id="mo-klook-b-play" aria-pressed="false">Play</button>
         </span>
       </figcaption>
-      <p class="sr" aria-live="polite" id="mo-live"></p>
+      <p class="sr" aria-live="polite" id="mo-klook-live"></p>
     </figure>
 </template>
   </main>
@@ -447,7 +525,7 @@ const FEATURED = [
          "An LLM-as-judge eval loop re-checks its output against our standard after every change, to catch regressions.",
          "It lives on Goodnotes’ internal skills marketplace, so anyone can run it."],
     call:"I kept evaluation and generation as separate modes. Combining them in one prompt made the output worse in both directions.",
-    fig:{ img:"", cap:"Evaluation mode: copy scored against each principle, with flags and rewrites." } },
+    motion:"skill", fig:{ img:"", cap:"Evaluation mode: copy scored against each principle, with flags and rewrites." } },
   { slug:"terminology", k:"Systems", where:"Goodnotes, 2026",
     t:"A terminology system built for people and AI",
     tags:["Content Engineering","Terminology Management","Content Governance","Quality Evaluation"],
@@ -496,7 +574,7 @@ const FEATURED = [
          "Built a repository of templates that new cases could be added to, with tone and style guidelines.",
          "Rewrote ticket activation for Seoul’s airport train string by string, so every text ID in the flow tells the same story."],
     call:"I replaced “amendment” with “change” or “cancel”, the words travellers actually use, and made every notification clear at first glance.",
-    fig:{ img:"../img/arex-activation.png", cap:"Ticket activation for Seoul’s airport train: each line of copy mapped to its text ID, then the English as it ships." } },
+    motion:"arex", fig:{ img:"../img/arex-activation.png", cap:"Ticket activation for Seoul’s airport train: each line of copy mapped to its text ID, then the English as it ships." } },
   { slug:"klook-reviews", k:"AI", where:"Klook, 2024–25",
     t:"Naming and shaping Klook’s first AI features",
     tags:["Conversational AI","Content Design","UX Research"],
@@ -508,7 +586,7 @@ const FEATURED = [
          "Kept the explainer factual, and saved the friendly voice for the chat interface.",
          "Carried lessons from testing in Australia into Travel buddy: clearer entry points and a reassuring, conversational persona."],
     call:"Senior management wanted “AI assistant” or “Travel homie”. With the PM, I laid out why “Travel buddy” worked better across our markets, in tone and at scale, so the name was decided on reasons, not seniority.",
-    motion:true, fig:{ img:"../img/klook-reviews.png", cap:"Before and after: “AI summary” became “Reviews summary”." } },
+    motion:"klook", fig:{ img:"../img/klook-reviews.png", cap:"Before and after: “AI summary” became “Reviews summary”." } },
   { slug:"localization", k:"Localization", where:"Goodnotes, 2026", hide:true,
     t:"Scaling localization across 16+ languages",
     tags:["Localization","Content Operations","Multilingual Content"],
@@ -558,86 +636,62 @@ document.getElementById("featured").innerHTML = FEATURED.filter(f => !f.hide).ma
     ${f.problem && keep(f.problem) ? `<p class="prob">${txt(f.problem)}</p>` : ""}
     ${pts.length ? `<ul>${pts.map(t => `<li>${txtb(t)}</li>`).join("")}</ul>` : ""}
     ${callTxt ? `<p class="call"><b>The call I made:</b> ${txt(callTxt)}</p>` : ""}
-    ${f.motion ? `<div data-motion></div>` : fig ? `<figure><img src="${esc(fig.img)}" alt="${esc(f.alt)}" loading="lazy">${fig.cap ? `<figcaption>${esc(fig.cap)}</figcaption>` : ""}</figure>` : ""}
+    ${f.motion ? `<div data-motion="${f.motion}"></div>` : fig ? `<figure><img src="${esc(fig.img)}" alt="${esc(f.alt)}" loading="lazy">${fig.cap ? `<figcaption>${esc(fig.cap)}</figcaption>` : ""}</figure>` : ""}
     <p class="meta tags">${f.tags.map(esc).join(", ")}</p>
     </div>
   </details>`;
 }).join("");
-document.querySelectorAll("[data-motion]").forEach(el => el.replaceWith(document.getElementById("tpl-motion").content.cloneNode(true)));
-function initMotion(){
-  if (!document.getElementById("mo-app")) return;
-(() => {
-  const app = document.getElementById("mo-app");
-  const notes = [...document.querySelectorAll("#mo-notes li")];
-  const stateEl = document.getElementById("mo-state");
-  const bB = document.getElementById("mo-b-before"), bA = document.getElementById("mo-b-after"), bP = document.getElementById("mo-b-play");
-  const live = document.getElementById("mo-live");
+document.querySelectorAll("[data-motion]").forEach(el => el.replaceWith(document.getElementById("tpl-motion-" + el.dataset.motion).content.cloneNode(true)));
+function initMotion(pfx, L){
+  const $ = id => document.getElementById(pfx + "-" + id);
+  const app = $("app"); if (!app) return;
+  const base = app.className;
+  const notes = [...document.querySelectorAll("#" + pfx + "-notes li")];
+  const stateEl = $("state"), bB = $("b-before"), bA = $("b-after"), bP = $("b-play"), live = $("live");
   const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-
-  // One loop, about 12 seconds: hold, three changes one at a time, hold on the result.
-  // Each frame: [ms from start, classes on .app, active note, label]
   const TL = [
-    [0,     "",                          0, "Before"],
-    [1600,  "on1",                       1, "Before"],
-    [2400,  "on1 s1",                    1, "Change 1 of 3"],
-    [4200,  "s1 on2",                    2, "Change 2 of 3"],
-    [5000,  "s1 s2 on2",                 2, "Change 2 of 3"],
-    [6800,  "s1 s2 on3",                 3, "Change 3 of 3"],
-    [7600,  "s1 s2 s3",                  3, "Change 3 of 3"],
-    [8600,  "s1 s2 s3 done",             0, "After"],
+    [0, "", 0, L.start], [1600, "on1", 1, L.start], [2400, "on1 s1", 1, L.step + " 1 of 3"],
+    [4200, "s1 on2", 2, L.step + " 2 of 3"], [5000, "s1 s2 on2", 2, L.step + " 2 of 3"],
+    [6800, "s1 s2 on3", 3, L.step + " 3 of 3"], [7600, "s1 s2 s3", 3, L.step + " 3 of 3"],
+    [8600, "s1 s2 s3 done", 0, L.end],
   ];
   const LOOP = 12600;
-  let t0 = 0, raf = 0, playing = false, visible = true, last = -1;
-
+  let t0 = 0, raf = 0, playing = false, visible = false, last = -1, userControl = false, autoPaused = false;
   function apply(i){
     if (i === last) return; last = i;
     const [, cls, note, label] = TL[i];
-    app.className = "app " + cls;
-    notes.forEach(n => n.classList.toggle("active", note === 0 ? label === "After" : +n.dataset.step === note));
+    app.className = base + " " + cls;
+    notes.forEach(n => n.classList.toggle("active", note === 0 ? label === L.end : +n.dataset.step === note));
     stateEl.textContent = label;
   }
-  function frame(now){
-    const t = (now - t0) % LOOP;
-    let i = 0; while (i + 1 < TL.length && TL[i + 1][0] <= t) i++;
-    apply(i);
-    raf = requestAnimationFrame(frame);
-  }
-  function play(){
-    if (playing) return; playing = true; last = -1;
-    t0 = performance.now(); raf = requestAnimationFrame(frame);
-    bP.textContent = "Pause"; bP.setAttribute("aria-pressed","true");
-    bB.setAttribute("aria-pressed","false"); bA.setAttribute("aria-pressed","false");
-  }
-  function stop(){ playing = false; cancelAnimationFrame(raf); bP.textContent = "Play"; bP.setAttribute("aria-pressed","false"); }
-  function show(after){
-    stop(); last = -1; apply(after ? TL.length - 1 : 0);
+  function frame(now){ const t = (now - t0) % LOOP; let i = 0; while (i + 1 < TL.length && TL[i + 1][0] <= t) i++; apply(i); raf = requestAnimationFrame(frame); }
+  function play(){ if (playing) return; playing = true; last = -1; t0 = performance.now(); raf = requestAnimationFrame(frame);
+    bP.textContent = "Pause"; bP.setAttribute("aria-pressed", "true"); bB.setAttribute("aria-pressed", "false"); bA.setAttribute("aria-pressed", "false"); }
+  function stop(){ playing = false; cancelAnimationFrame(raf); bP.textContent = "Play"; bP.setAttribute("aria-pressed", "false"); }
+  function show(after){ stop(); last = -1; apply(after ? TL.length - 1 : 0);
     bB.setAttribute("aria-pressed", String(!after)); bA.setAttribute("aria-pressed", String(after));
-    live.textContent = after ? "Showing after: Reviews summary, From real reviews, powered by AI." : "Showing before: AI Summary, Based on real guest reviews.";
-  }
-
-  // Once someone uses a control, autoplay never takes over again.
-  let userControl = false, autoPaused = false;
+    live.textContent = after ? L.liveAfter : L.liveBefore; }
   bB.onclick = () => { userControl = true; show(false); };
   bA.onclick = () => { userControl = true; show(true); };
   bP.onclick = () => { userControl = true; playing ? stop() : play(); };
-
-  // Only run while on screen and the tab is visible.
   const canAuto = () => !reduce.matches && !userControl;
   new IntersectionObserver(([e]) => {
     visible = e.isIntersecting;
     if (visible && (canAuto() || autoPaused)) { autoPaused = false; play(); }
     else if (!visible && playing) { stop(); autoPaused = true; }
-  }, { threshold: .4 }).observe(document.getElementById("mo-fig"));
+  }, { threshold: .4 }).observe($("fig"));
   document.addEventListener("visibilitychange", () => {
     if (document.hidden && playing) { stop(); autoPaused = true; }
     else if (!document.hidden && autoPaused && visible) { autoPaused = false; play(); }
   });
-
-  // Reduced motion: no autoplay. Start on the result, with every note visible; the buttons swap states instantly.
   if (reduce.matches) show(true); else apply(0);
-})();
 }
-initMotion();
+initMotion("mo-klook", { start:"Before", step:"Change", end:"After",
+  liveBefore:"Showing before: AI Summary, Based on real guest reviews.", liveAfter:"Showing after: Reviews summary, From real reviews, powered by AI." });
+initMotion("mo-arex", { start:"Before", step:"Change", end:"After",
+  liveBefore:"Showing before: Departure time selection, with one long rule.", liveAfter:"Showing after: Activate your ticket, with three short facts." });
+initMotion("mo-skill", { start:"Input", step:"Flag", end:"Suggested rewrite",
+  liveBefore:"Showing the input: Oops! Something went wrong. Please try again later. OK.", liveAfter:"Showing the rewrite: We couldn’t save your note. Check your connection, then try again. Try again." });
 
 /* Photo grid at the bottom of About. img: path like "../img/marathon.jpg" */
 const PHOTOS = [
