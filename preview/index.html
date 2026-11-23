@@ -536,7 +536,7 @@ figcaption{font:var(--t-meta);color:var(--muted);margin-top:var(--s-2)}
   <footer>
     <p>Based in Singapore.</p>
     <p>Say hi on <a href="https://www.linkedin.com/in/danapek" target="_blank" rel="noopener">LinkedIn</a> or at <a href="mailto:hello@danapek.com">hello@danapek.com</a></p>
-    <p>© 2026</p>
+    <p>© 2026<span id="updated"> · Updated <time datetime="__UPDATED_ISO__">__UPDATED__</time></span></p>
   </footer>
 </div>
 
@@ -667,6 +667,7 @@ pills.addEventListener("click", e => {
 
 /* Set to true to see every unfinished placeholder while editing. */
 const SHOW_TODOS = false;
+{ const u = document.getElementById("updated"); if (u && u.textContent.includes("__")) u.remove(); }
 document.documentElement.classList.toggle("drafts", SHOW_TODOS);
 const hasTodo = s => /\[\[/.test(s);
 const txt = s => esc(s).replace(/\[\[(.*?)\]\]/g, '<span class="todo">[$1]</span>');
